@@ -1,0 +1,91 @@
+﻿@page
+@model TimimInnovation.Pages.Agreement.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>TermAndCondition</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TermAndCondition.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TermAndCondition.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TermAndCondition.ClientUsername)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TermAndCondition.ClientUsername)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TermAndCondition.ClientFirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TermAndCondition.ClientFirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TermAndCondition.ClientLastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TermAndCondition.ClientLastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TermAndCondition.Continent)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TermAndCondition.Continent)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TermAndCondition.Country)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TermAndCondition.Country)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TermAndCondition.CountryState)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TermAndCondition.CountryState)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TermAndCondition.TermAndConditionText)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TermAndCondition.TermAndConditionText)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TermAndCondition.Agreement)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TermAndCondition.Agreement)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TermAndCondition.SignDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TermAndCondition.SignDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TermAndCondition.CreatedDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TermAndCondition.CreatedDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TermAndCondition.ModifiedDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TermAndCondition.ModifiedDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.TermAndCondition?.TermAndConditionId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

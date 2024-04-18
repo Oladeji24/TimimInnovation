@@ -1,0 +1,61 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization;
+@attribute [Authorize(Roles = "Admin")]
+
+@model TimimInnovation.Pages.Admin.Misc.MiscModel
+@{
+    // Your existing Razor code, if any
+}
+
+<!-- Container with a softer background and spacing -->
+<div class="container mt-4">
+
+    <!-- Heading for the section -->
+    <h2 class="text-center mb-4">TERMS AND CONDITIONS</h2>
+
+    <!-- Bootstrap grid system for responsiveness -->
+    <div class="row">
+
+        <!-- Link for Properties Owner T & C with Bootstrap button style -->
+        <div class="col-12 col-md-4 mb-3">
+            <a href="/Accords/Create" class="text-decoration-none">
+                <button class="btn btn-primary btn-lg btn-block">
+                    Properties Owner T & C
+                </button>
+            </a>
+        </div>
+
+        <!-- Link for Client T & C with Bootstrap button style -->
+        <div class="col-12 col-md-4 mb-3">
+            <a href="/ClientAccords/Create" class="text-decoration-none">
+                <button class="btn btn-primary btn-lg btn-block">
+                    Client T & C
+                </button>
+            </a>
+        </div>
+        <!-- Additional button for Complaint Box link with Bootstrap button style -->
+        <div class="col-12 col-md-4 mb-3">
+            <a href="/Admin/ComplaintBox/Create" class="text-decoration-none">
+                <button class="btn btn-primary btn-lg btn-block">
+                    Complaint Box
+                </button>
+            </a>
+        </div>
+
+    </div>
+</div>
+
+<!-- Add some style for the hover effect on buttons -->
+<style>
+    button:hover {
+        background: linear-gradient(to right, #0052cc, #0099cc);
+    }
+</style>
+
+<!-- Bootstrap styles -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- Bootstrap scripts (recommended to include at the end of the HTML document) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

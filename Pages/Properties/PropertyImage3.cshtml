@@ -1,0 +1,61 @@
+﻿@page
+@model TimimInnovation.Pages.Properties.PropertyImage3Model
+@{
+}
+<h2 class="text-center mb-4">Upload Property Image</h2>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Property Image Upload THree</div>
+                <div class="card-body">
+                    <div class="text-center mb-3">
+                        <button id="upload_widget" class="btn btn-primary">Upload Image</button>
+                    </div>
+                    <div id="url_container" style="display:none;">
+                        <strong class="d-block mb-2">Uploaded Image URL:</strong>
+                        <a href="" id="property_image_url" target="_blank"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-3">
+                <button onclick="copyImageUrlAndReturn();" class="btn btn-light">Return to Create Property Paste in Image3 TextBox</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+    <script>
+        var myWidget = cloudinary.createUploadWidget({
+            cloudName: 'dqywlnldk',
+            uploadPreset: 'TIMIMPROP'
+        }, (error, result) => {
+            if (!error && result && result.event === "success") {
+                console.log('Done uploading: ', result.info.url);
+                localStorage.setItem('PropertyImage3', result.info.url);
+            }
+        });
+
+        document.getElementById("upload_widget").addEventListener("click", function () {
+            myWidget.open();
+        }, false);
+
+        function copyImageUrlAndReturn() {
+            let imageUrl = localStorage.getItem('PropertyImage1');
+            if (imageUrl) {
+                const textArea = document.createElement('textarea');
+                textArea.value = imageUrl;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+
+                // Navigate back in browser history
+                window.history.back();
+            }
+        }
+    </script>
+}

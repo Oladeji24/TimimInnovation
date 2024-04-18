@@ -1,0 +1,38 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization;
+@model TimimInnovation.Pages.PropertyConnect.GetAgentPersonnelCodeModel
+@attribute [Authorize]
+@{
+    Layout = "_Layout"; // Use your layout, if you have one
+    ViewData["Title"] = "Property Loader Dashboard"; // Set the page title
+}
+
+<<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <h2 class="text-center mb-4">Welcome, <strong>@User.Identity.Name</strong></h2>
+            <a href="#" id="reloadCodeLink" class="card shadow-lg card-header bg-primary text-white text-center">Personnel Code: Click here if code is not displayed</a>
+            <div class="card-body">
+                <p class="text-center font-weight-bold">Role: <strong>@Model.UserRole</strong></p>
+                <hr />
+                <h4 class="text-center mb-4">Your Personal code: <strong>@Model.UserAgentCode</strong></h4>
+                <div class="d-flex justify-content-center mt-3 mb-4">
+                    <a href="@Url.Page("./NINVerification")" class="btn btn-primary mr-3">Add Property</a>
+                    <a href="@Url.Page("/Dashboards/AgentDashboard")" class="btn btn-dark">Go to Agent-Dashboard</a>
+                    <a href="@Url.Page("/Dashboards/PropertyOwnerDashboard")" class="btn btn-dark">Go to Property-Dashboard</a>
+                </div>
+                <div class="alert alert-info mt-3">
+                    <strong>Note:</strong> Always use this code for all your activities with Timim, including property registrations, transactions, and more.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        document.getElementById('reloadCodeLink').addEventListener('click', function () {
+            location.reload();
+        });
+    </script>
+}

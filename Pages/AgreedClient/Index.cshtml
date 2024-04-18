@@ -1,0 +1,72 @@
+﻿@page
+@model TimimInnovation.Pages.AgreedClient.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientTermAndCondition[0].ClientTermAndConditionUsername)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientTermAndCondition[0].ClientTermAndConditionFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientTermAndCondition[0].ClientTermAndConditionLastname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientTermAndCondition[0].ClientTermAndConditionDecision)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientTermAndCondition[0].SignDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientTermAndCondition[0].CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientTermAndCondition[0].ModifiedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ClientTermAndCondition) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientTermAndConditionUsername)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientTermAndConditionFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientTermAndConditionLastname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientTermAndConditionDecision)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SignDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ClientTermAndConditionId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ClientTermAndConditionId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ClientTermAndConditionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

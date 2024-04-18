@@ -1,0 +1,58 @@
+﻿@page
+@attribute [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Agent,Admin,Propertyloader")]
+@model TimimInnovation.Pages.Dashboards.AgentDashboardModel
+
+@{
+    ViewData["Title"] = "Agent Dashboard";
+}
+
+<div class="container mt-5">
+    <!-- Centered welcome message -->
+    <div class="text-center mb-4">
+        <h1>Welcome, @User.Identity.Name!</h1>
+    </div>
+
+    <!-- Add Property button -->
+    <div class="d-flex justify-content-end mb-4">
+        <a asp-page="/Properties/Create" class="btn btn-primary">Add Property</a>
+    </div>
+
+    <!-- Agent properties table -->
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+            <thead class="thead-light">
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.TimimAgent[0].FirstName)</th>
+                    <th>@Html.DisplayNameFor(model => model.TimimAgent[0].LastName)</th>
+                    <th>@Html.DisplayNameFor(model => model.TimimAgent[0].AgentCode)</th>
+                    <th>@Html.DisplayNameFor(model => model.TimimAgent[0].Email)</th>
+                    <th>@Html.DisplayNameFor(model => model.TimimAgent[0].PhoneNumber)</th>
+                    <th>@Html.DisplayNameFor(model => model.TimimAgent[0].PropertyCode)</th>
+                    <th>@Html.DisplayNameFor(model => model.TimimAgent[0].TransactionCode)</th>
+                    <th>@Html.DisplayNameFor(model => model.TimimAgent[0].Commission)</th>
+                    <th>@Html.DisplayNameFor(model => model.TimimAgent[0].AgencyName)</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.TimimAgent)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.FirstName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.LastName)</td>
+                        <td>@Html.DisplayFor(modelItem => item.AgentCode)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PhoneNumber)</td>
+                        <td>@Html.DisplayFor(modelItem => item.PropertyCode)</td>
+                        <td>@Html.DisplayFor(modelItem => item.TransactionCode)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Commission)</td>
+                        <td>@Html.DisplayFor(modelItem => item.AgencyName)</td>
+                        <td>
+                            <a asp-page="./Details" asp-route-id="@item.AgentId" class="btn btn-sm btn-info">Details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

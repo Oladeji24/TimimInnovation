@@ -1,0 +1,108 @@
+﻿@page
+@model TimimInnovation.Pages.Agent.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimAgent[0].Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimAgent[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimAgent[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimAgent[0].AgentCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimAgent[0].Picture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimAgent[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimAgent[0].PhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimAgent[0].PropertyCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimAgent[0].TransactionCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimAgent[0].Commission)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimAgent[0].AgencyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimAgent[0].CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimAgent[0].UpdatedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TimimAgent) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AgentCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Picture)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Commission)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AgencyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedDate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.AgentId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.AgentId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.AgentId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

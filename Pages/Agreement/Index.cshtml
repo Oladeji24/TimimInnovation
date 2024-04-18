@@ -1,0 +1,102 @@
+﻿@page
+@model TimimInnovation.Pages.Agreement.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TermAndCondition[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TermAndCondition[0].ClientUsername)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TermAndCondition[0].ClientFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TermAndCondition[0].ClientLastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TermAndCondition[0].Continent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TermAndCondition[0].Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TermAndCondition[0].CountryState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TermAndCondition[0].TermAndConditionText)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TermAndCondition[0].Agreement)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TermAndCondition[0].SignDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TermAndCondition[0].CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TermAndCondition[0].ModifiedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TermAndCondition) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientUsername)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientFirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClientLastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Continent)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CountryState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TermAndConditionText)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Agreement)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SignDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TermAndConditionId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.TermAndConditionId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TermAndConditionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,27 @@
+﻿@page
+@model TimimInnovation.Pages.AgreedClient.CreateModel
+
+@{
+    ViewData["Title"] = "Processing...";
+}
+
+<div style="display:none;">
+    <form id="autoSubmitForm" method="post">
+        <input asp-for="ClientTermAndCondition.ClientTermAndConditionUsername" class="form-control" />
+        <input asp-for="ClientTermAndCondition.ClientTermAndConditionFirstName" class="form-control" />
+        <input asp-for="ClientTermAndCondition.ClientTermAndConditionLastname" class="form-control" />
+        <input asp-for="ClientTermAndCondition.ClientTermAndConditionDecision" class="form-control" />
+        <input asp-for="ClientTermAndCondition.SignDate" class="form-control" />
+        <input asp-for="ClientTermAndCondition.CreatedDate" class="form-control" />
+        <input asp-for="ClientTermAndCondition.ModifiedDate" class="form-control" />
+        <input type="submit" value="Create" class="btn btn-primary" />
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        window.onload = function () {
+            document.getElementById("autoSubmitForm").submit();
+        };
+    </script>
+}

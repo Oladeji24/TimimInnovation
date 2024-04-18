@@ -1,0 +1,100 @@
+﻿@page
+@model TimimInnovation.Pages.Agent.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TimimAgent</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimAgent.Username)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimAgent.Username)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimAgent.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimAgent.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimAgent.LastName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimAgent.LastName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimAgent.AgentCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimAgent.AgentCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimAgent.Picture)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimAgent.Picture)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimAgent.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimAgent.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimAgent.PhoneNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimAgent.PhoneNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimAgent.PropertyCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimAgent.PropertyCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimAgent.TransactionCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimAgent.TransactionCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimAgent.Commission)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimAgent.Commission)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimAgent.AgencyName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimAgent.AgencyName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimAgent.CreatedDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimAgent.CreatedDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimAgent.UpdatedDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimAgent.UpdatedDate)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="TimimAgent.AgentId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

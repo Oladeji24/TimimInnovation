@@ -1,0 +1,361 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<!-- Header Start -->
+<div class="container-fluid header bg-white p-0">
+    <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+        <div class="col-md-6 p-5 mt-lg-5">
+            <h1 class="display-5 animated fadeIn mb-4">Find A <span class="text-primary">Perfect Home</span> To Live With Your Family</h1>
+            <p class="animated fadeIn mb-4 pb-2">At Timim, we are dedicated to helping you find the ideal home for you and your family. Our knowledgeable team will guide you through the process, ensuring your unique needs and preferences are met. We go above and beyond by providing ongoing support and protection, addressing any concerns or issues that may arise while you live in one of our properties. Your well-being and peace of mind are our top priorities. Trust Timim to be your reliable partner in finding a dream home and creating a safe and comfortable living environment for you and your loved ones. </p>
+            <a href="/Properties/Index" class="btn btn-primary py-3 px-5 me-3 animated fadeIn">Get Started</a>
+        </div>
+        <div class="col-md-6 animated fadeIn">
+            <div class="owl-carousel header-carousel">
+                <div class="owl-carousel-item">
+                    <img class="img-fluid" src="~/img/timimfront.png" alt="">
+                </div>
+                <div class="owl-carousel-item">
+                    <img class="img-fluid" src="~/img/carousel-1.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+
+<form method="post">
+    <!-- Search Start -->
+    <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">
+        <div class="container">
+            <div class="row g-2">
+                <div class="col-md-10">
+                    <div class="row g-2">
+                        <!-- Search by (City, LocalGovernmentArea, Street) -->
+                        <div class="col-md-4">
+                            <select class="form-select border-0 py-3" name="SearchKeyword">
+                                <option selected>Select Search Type</option>
+                                <option value="City">City</option>
+                                <option value="LocalGovernmentArea">Local Government Area</option>
+                                <option value="Street">Street</option>
+                            </select>
+                        </div>
+
+                        <!-- Property Type Integration -->
+                        <div class="col-md-4">
+                            <select class="form-select border-0 py-3" name="PropertyType">
+                                <option selected>Property Type</option>
+                                <option value="Apartments">Apartments</option>
+                                <option value="Villa">Villa</option>
+                                <option value="Home">Home</option>
+                                <option value="Office">Office</option>
+                                <option value="Building">Building</option>
+                                <option value="Townhouse">Townhouse</option>
+                                <option value="Shop">Shop</option>
+                                <option value="Garage">Garage</option>
+                            </select>
+                        </div>
+                        <!-- States dropdown -->
+                        <div class="col-md-4">
+                            <select class="form-select border-0 py-3" name="Location">
+                                <option selected>Location (State)</option>
+                                <option value="Abia">Abia</option>
+                                <option value="Adamawa">Adamawa</option>
+                                <option value="Akwa Ibom">Akwa Ibom</option>
+                                <option value="Anambra">Anambra</option>
+                                <option value="Bauchi">Bauchi</option>
+                                <option value="Bayelsa">Bayelsa</option>
+                                <option value="Benue">Benue</option>
+                                <option value="Borno">Borno</option>
+                                <option value="Cross River">Cross River</option>
+                                <option value="Delta">Delta</option>
+                                <option value="Ebonyi">Ebonyi</option>
+                                <option value="Edo">Edo</option>
+                                <option value="Ekiti">Ekiti</option>
+                                <option value="Enugu">Enugu</option>
+                                <option value="Gombe">Gombe</option>
+                                <option value="Imo">Imo</option>
+                                <option value="Jigawa">Jigawa</option>
+                                <option value="Kaduna">Kaduna</option>
+                                <option value="Kano">Kano</option>
+                                <option value="Katsina">Katsina</option>
+                                <option value="Kebbi">Kebbi</option>
+                                <option value="Kogi">Kogi</option>
+                                <option value="Kwara">Kwara</option>
+                                <option value="Lagos">Lagos</option>
+                                <option value="Nasarawa">Nasarawa</option>
+                                <option value="Niger">Niger</option>
+                                <option value="Ogun">Ogun</option>
+                                <option value="Ondo">Ondo</option>
+                                <option value="Osun">Osun</option>
+                                <option value="Oyo">Oyo</option>
+                                <option value="Plateau">Plateau</option>
+                                <option value="Rivers">Rivers</option>
+                                <option value="Sokoto">Sokoto</option>
+                                <option value="Taraba">Taraba</option>
+                                <option value="Yobe">Yobe</option>
+                                <option value="Zamfara">Zamfara</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-dark border-0 w-100 py-3">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Search End -->
+</form>
+<!-- Category Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="mb-3">Property Types</h1>
+            <p>Browse through our Property Categories. Whether you are looking for shortlets, rentage or Offices, we got you covered, check click any of our Property Categories.</p>
+        </div>
+        <div class="row g-4">
+
+            <!-- Apartment Link -->
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <a class="cat-item d-block bg-light text-center rounded p-3" href="/SearchResults/PropertyCategory?propertyType=Apartments">
+                    <div class="rounded p-4">
+                        <div class="icon mb-3">
+                            <img class="img-fluid" src="img/icon-apartment.png" alt="Icon">
+                        </div>
+                        <h6>Apartment</h6>
+                        <span>Timim Properties</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Villa Link -->
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <a class="cat-item d-block bg-light text-center rounded p-3" href="/SearchResults/PropertyCategory?propertyType=Villa">
+                    <div class="rounded p-4">
+                        <div class="icon mb-3">
+                            <img class="img-fluid" src="img/icon-villa.png" alt="Icon">
+                        </div>
+                        <h6>Villa</h6>
+                        <span>Timim Properties</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Home Link -->
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                <a class="cat-item d-block bg-light text-center rounded p-3" href="/SearchResults/PropertyCategory?propertyType=Home">
+                    <div class="rounded p-4">
+                        <div class="icon mb-3">
+                            <img class="img-fluid" src="img/icon-house.png" alt="Icon">
+                        </div>
+                        <h6>Home</h6>
+                        <span>Timim Properties</span>
+                    </div>
+                </a>
+            </div>
+            <!-- Office Link -->
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                <a class="cat-item d-block bg-light text-center rounded p-3" href="/SearchResults/PropertyCategory?propertyType=Office">
+                    <div class="rounded p-4">
+                        <div class="icon mb-3">
+                            <img class="img-fluid" src="img/icon-housing.png" alt="Icon">
+                        </div>
+                        <h6>Office</h6>
+                        <span>Timim Properties</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Building Link -->
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                <a class="cat-item d-block bg-light text-center rounded p-3" href="/SearchResults/PropertyCategory?propertyType=Building">
+                    <div class="rounded p-4">
+                        <div class="icon mb-3">
+                            <img class="img-fluid" src="img/icon-building.png" alt="Icon">
+                        </div>
+                        <h6>Building</h6>
+                        <span>Timim Properties</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Townhouse Link -->
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                <a class="cat-item d-block bg-light text-center rounded p-3" href="/SearchResults/PropertyCategory?propertyType=Townhouse">
+                    <div class="rounded p-4">
+                        <div class="icon mb-3">
+                            <img class="img-fluid" src="img/icon-neighborhood.png" alt="Icon">
+                        </div>
+                        <h6>Townhouse</h6>
+                        <span>Timim Properties</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Shop Link -->
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                <a class="cat-item d-block bg-light text-center rounded p-3" href="/SearchResults/PropertyCategory?propertyType=Shop">
+                    <div class="rounded p-4">
+                        <div class="icon mb-3">
+                            <img class="img-fluid" src="img/icon-condominium.png" alt="Icon">
+                        </div>
+                        <h6>Shop</h6>
+                        <span>Timim Properties</span>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Garage Link -->
+            <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                <a class="cat-item d-block bg-light text-center rounded p-3" href="/SearchResults/PropertyCategory?propertyType=Garage">
+                    <div class="rounded p-4">
+                        <div class="icon mb-3">
+                            <img class="img-fluid" src="img/icon-luxury.png" alt="Icon">
+                        </div>
+                        <h6>Garage</h6>
+                        <span>Timim Properties</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Category End -->
+<!-- About Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                <div class="about-img position-relative overflow-hidden p-5 pe-0">
+                    <img class="img-fluid w-100" src="img/about.jpg">
+                </div>
+            </div>
+            <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                <h1 class="mb-4">#1 Place To Find The Perfect Property</h1>
+                <p class="mb-4">Whatever you are looking for, we have it. Do business with us, you can register your properties with us. On our platorm You can do the following</p>
+                <p><i class="fa fa-check text-primary me-3"></i>Register your properties with us for fast and quick business</p>
+                <p><i class="fa fa-check text-primary me-3"></i>Rent or buy properties on our platform </p>
+                <p><i class="fa fa-check text-primary me-3"></i>Tenant background Check</p>
+                <a class="btn btn-primary py-3 px-5 mt-3" href="">Read More</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- About End -->
+<!-- Call to Action Start -->
+<<div class="container-xxl py-5">
+    <div class="container">
+        <div class="bg-light rounded p-3">
+            <div class="bg-white rounded p-4" style="border: 1px dashed rgba(0, 185, 142, .3)">
+                <div class="row g-5 align-items-center">
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.1s">
+                        <img class="img-fluid rounded w-100" src="img/call-to-action.jpg" alt="">
+                    </div>
+                    <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="mb-4">
+                            <h1 class="mb-3">Contact With Our Certified Agent</h1>
+                            <p>Contact us to connect you to our certified agents near you.</p>
+                        </div>
+                        <button class="btn btn-primary py-3 px-4 me-2" onclick="showPopup('+2348180302382', '+2348056524787')">
+                            <i class="fa fa-phone-alt me-2"></i>Make A Call
+                        </button>
+                        <a href="" class="btn btn-dark py-3 px-4"><i class="fa fa-calendar-alt me-2"></i>Get Appointment</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- The modal or popup -->
+<div class="modal" tabindex="-1" role="dialog" id="callPopup">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Choose Action</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Choose how you want to connect:</p>
+                <button class="btn btn-primary" onclick="makeCall('+2348056524787')">Call Only</button>
+                <button class="btn btn-success" onclick="openWhatsApp('+2348180302382')">WhatsApp</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showPopup(whatsappNumber, callNumber) {
+        // Show the modal or popup
+        var callPopup = new bootstrap.Modal(document.getElementById('callPopup'));
+        callPopup.show();
+    }
+
+    function makeCall(number) {
+        // Add logic to make a call using the provided number
+        alert('Making a call to ' + number);
+    }
+
+    function openWhatsApp(number) {
+        // Add logic to open WhatsApp using the provided number
+        alert('Opening WhatsApp for ' + number);
+    }
+</script>
+
+
+<!-- Call to Action End -->
+<!-- Button Start -->
+<div class="container text-center py-5">
+    <a href="/Properties/Index" class="btn btn-primary py-3 px-5">Load Properties Listings</a>
+</div>
+<!-- Button End -->
+<!-- Testimonial Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+            <h1 class="mb-3">Our Clients Say!</h1>
+            <p>Read the genuine experiences and stories shared by our happy clients.</p>
+        </div>
+        <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+            <div class="testimonial-item bg-light rounded p-3">
+                <div class="bg-white border rounded p-4">
+                    <p>From start to finish, my experience with Timim Properties was seamless. Their team helped me find a location that was not only within my budget but also in the heart of the city, close to my new fashion boutique. I'm so grateful!</p>
+                    <div class="d-flex align-items-center">
+                        <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-1.jpg" style="width: 45px; height: 45px;">
+                        <div class="ps-3">
+                            <h6 class="fw-bold mb-1">Mama Titi</h6>
+                            <small>Fashion Designer</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item bg-light rounded p-3">
+                <div class="bg-white border rounded p-4">
+                    <p>As a teacher, I needed a peaceful environment for both my online classes and personal studies. Timim Properties showed me options that perfectly matched my criteria. Their professionalism truly stands out. Thank you!</p>
+                    <div class="d-flex align-items-center">
+                        <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-2.jpg" style="width: 45px; height: 45px;">
+                        <div class="ps-3">
+                            <h6 class="fw-bold mb-1">Shola</h6>
+                            <small>Teacher</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-item bg-light rounded p-3">
+                <div class="bg-white border rounded p-4">
+                    <p>Being a doctor means odd hours and high-stress levels. Timim Properties understood my needs, especially proximity to the hospital. The process felt personalized and easy. I'm now comfortably settled near my workplace. Highly recommended!</p>
+                    <div class="d-flex align-items-center">
+                        <img class="img-fluid flex-shrink-0 rounded" src="img/testimonial-3.jpg" style="width: 45px; height: 45px;">
+                        <div class="ps-3">
+                            <h6 class="fw-bold mb-1">Solomon</h6>
+                            <small>Medical Doctor</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->

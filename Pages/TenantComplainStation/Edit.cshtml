@@ -1,0 +1,70 @@
+﻿@page
+@model TimimInnovation.Pages.TenantComplainStation.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>TenantComplain</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TenantComplain.TenantComplainId" />
+            <div class="form-group">
+                <label asp-for="TenantComplain.TenantName" class="control-label"></label>
+                <input asp-for="TenantComplain.TenantName" class="form-control" />
+                <span asp-validation-for="TenantComplain.TenantName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenantComplain.TenantPhoneNumber" class="control-label"></label>
+                <input asp-for="TenantComplain.TenantPhoneNumber" class="form-control" />
+                <span asp-validation-for="TenantComplain.TenantPhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenantComplain.TenantEmail" class="control-label"></label>
+                <input asp-for="TenantComplain.TenantEmail" class="form-control" />
+                <span asp-validation-for="TenantComplain.TenantEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenantComplain.PropertyAddress" class="control-label"></label>
+                <input asp-for="TenantComplain.PropertyAddress" class="form-control" />
+                <span asp-validation-for="TenantComplain.PropertyAddress" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenantComplain.LandLordtFullName" class="control-label"></label>
+                <input asp-for="TenantComplain.LandLordtFullName" class="form-control" />
+                <span asp-validation-for="TenantComplain.LandLordtFullName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenantComplain.LandLoordNumber" class="control-label"></label>
+                <input asp-for="TenantComplain.LandLoordNumber" class="form-control" />
+                <span asp-validation-for="TenantComplain.LandLoordNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenantComplain.TenantComplainText" class="control-label"></label>
+                <input asp-for="TenantComplain.TenantComplainText" class="form-control" />
+                <span asp-validation-for="TenantComplain.TenantComplainText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TenantComplain.ComplainDate" class="control-label"></label>
+                <input asp-for="TenantComplain.ComplainDate" class="form-control" />
+                <span asp-validation-for="TenantComplain.ComplainDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

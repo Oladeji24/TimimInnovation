@@ -1,0 +1,90 @@
+﻿@page
+@model TimimInnovation.Pages.Agreement.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>TermAndCondition</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TermAndCondition.TermAndConditionId" />
+            <div class="form-group">
+                <label asp-for="TermAndCondition.Title" class="control-label"></label>
+                <input asp-for="TermAndCondition.Title" class="form-control" />
+                <span asp-validation-for="TermAndCondition.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TermAndCondition.ClientUsername" class="control-label"></label>
+                <input asp-for="TermAndCondition.ClientUsername" class="form-control" />
+                <span asp-validation-for="TermAndCondition.ClientUsername" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TermAndCondition.ClientFirstName" class="control-label"></label>
+                <input asp-for="TermAndCondition.ClientFirstName" class="form-control" />
+                <span asp-validation-for="TermAndCondition.ClientFirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TermAndCondition.ClientLastName" class="control-label"></label>
+                <input asp-for="TermAndCondition.ClientLastName" class="form-control" />
+                <span asp-validation-for="TermAndCondition.ClientLastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TermAndCondition.Continent" class="control-label"></label>
+                <input asp-for="TermAndCondition.Continent" class="form-control" />
+                <span asp-validation-for="TermAndCondition.Continent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TermAndCondition.Country" class="control-label"></label>
+                <input asp-for="TermAndCondition.Country" class="form-control" />
+                <span asp-validation-for="TermAndCondition.Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TermAndCondition.CountryState" class="control-label"></label>
+                <input asp-for="TermAndCondition.CountryState" class="form-control" />
+                <span asp-validation-for="TermAndCondition.CountryState" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TermAndCondition.TermAndConditionText" class="control-label"></label>
+                <input asp-for="TermAndCondition.TermAndConditionText" class="form-control" />
+                <span asp-validation-for="TermAndCondition.TermAndConditionText" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TermAndCondition.Agreement" /> @Html.DisplayNameFor(model => model.TermAndCondition.Agreement)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="TermAndCondition.SignDate" class="control-label"></label>
+                <input asp-for="TermAndCondition.SignDate" class="form-control" />
+                <span asp-validation-for="TermAndCondition.SignDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TermAndCondition.CreatedDate" class="control-label"></label>
+                <input asp-for="TermAndCondition.CreatedDate" class="form-control" />
+                <span asp-validation-for="TermAndCondition.CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TermAndCondition.ModifiedDate" class="control-label"></label>
+                <input asp-for="TermAndCondition.ModifiedDate" class="form-control" />
+                <span asp-validation-for="TermAndCondition.ModifiedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

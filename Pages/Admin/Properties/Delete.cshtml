@@ -1,0 +1,294 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization;
+@attribute [Authorize(Roles = "Admin")]
+@model TimimInnovation.Pages.Admin.Properties.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>TimimBCProperties</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.Username)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.Username)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.PropertyName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.PropertyName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.PropertyType)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.PropertyType)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.TransactionPurpose)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.TransactionPurpose)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.TransactionStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.TransactionStatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.PropertyCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.PropertyCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.TransactionCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.TransactionCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.NoOfLivingRoom)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.NoOfLivingRoom)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.NoOfBedrooms)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.NoOfBedrooms)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.NoOfBathrooms)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.NoOfBathrooms)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.NoOfFloors)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.NoOfFloors)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.PropertySize)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.PropertySize)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.Street)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.Street)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.LocalGovernmentArea)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.LocalGovernmentArea)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.City)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.City)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.State)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.State)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.Country)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.Country)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.Price)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.MaintenanceCost)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.MaintenanceCost)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.ZipCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.ZipCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.NearestLandmark)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.NearestLandmark)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.HasGarage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.HasGarage)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.HasSwimmingPool)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.HasSwimmingPool)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.HasGarden)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.HasGarden)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.HasBalcony)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.HasBalcony)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.IsVerified)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.IsVerified)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.Negotiable)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.Negotiable)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.WaterSupply)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.WaterSupply)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.PowerBackup)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.PowerBackup)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.FacingDirection)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.FacingDirection)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.View)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.View)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.LegalStatus)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.LegalStatus)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.PublicTransitAccess)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.PublicTransitAccess)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.VirtualTourLink)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.VirtualTourLink)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.VideoLink)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.VideoLink)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.RegisterPersonnelCode)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.RegisterPersonnelCode)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.ContactNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.ContactNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.ContactEmail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.ContactEmail)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.PropertyImage1)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.PropertyImage1)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.PropertyImage2)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.PropertyImage2)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.PropertyImage3)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.PropertyImage3)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.DocumentOnProperty)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.DocumentOnProperty)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.CreatedDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.CreatedDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TimimBCProperties.UpdatedDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TimimBCProperties.UpdatedDate)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="TimimBCProperties.PropertyId" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

@@ -1,0 +1,46 @@
+﻿@page
+@model TimimInnovation.Pages.TimimLiveChatModel
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timim Live Chat Room</title>
+    <style>
+        .centered-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f3f4f6;
+            font-family: Arial, sans-serif;
+        }
+
+        .message-box {
+            padding: 30px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 80%;
+            max-width: 600px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="centered-container">
+        <div class="message-box">
+            <h2>Welcome to the Timim Live Chat Room!</h2>
+            <p>Our team is here and ready to assist you. If you have any questions or need clarification on a particular topic, please don't hesitate to ask. We're dedicated to addressing your concerns and ensuring you have a seamless experience with us.</p>
+        </div>
+    </div>
+    <!--Add the following script at the bottom of the web page (before </body></html>)-->
+    <script type="text/javascript">
+        function add_chatinline() { var hccid = 46426769; var nt = document.createElement("script"); nt.async = true; nt.src = "https://mylivechat.com/chatinline.aspx?hccid=" + hccid; var ct = document.getElementsByTagName("script")[0]; ct.parentNode.insertBefore(nt, ct); }
+        add_chatinline();</script>
+</body>
+
+</html>

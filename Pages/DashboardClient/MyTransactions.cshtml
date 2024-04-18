@@ -1,0 +1,35 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization;
+@attribute [Authorize]
+@model TimimInnovation.Pages.DashboardClient.MyTransactionsModel
+
+@{
+    ViewData["Title"] = "My Transactions";
+}
+
+<h1>My Transactions</h1>
+
+<p>
+
+</p>
+
+<div class="card-deck">
+    @foreach (var item in Model.TimimTransaction.OrderByDescending(t => t.StartDate))
+    {
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Transaction Code: @Html.DisplayFor(modelItem => item.TransactionCode)</h5>
+                <p class="card-text">Username: @Html.DisplayFor(modelItem => item.Username)</p>
+                <p class="card-text">Last Name: @Html.DisplayFor(modelItem => item.LastName)</p>
+                <p class="card-text">Payment Status: @Html.DisplayFor(modelItem => item.PaymentStatus)</p>
+                <p class="card-text">Payment Method: @Html.DisplayFor(modelItem => item.PaymentMethod)</p>
+                <p class="card-text">Receipt No: @Html.DisplayFor(modelItem => item.ReceiptNo)</p>
+                <p class="card-text">Property Name: @Html.DisplayFor(modelItem => item.PropertyName)</p>
+                <p class="card-text">Price: ₦@item.Price.ToString("N")</p>
+                <p class="card-text">Start Date: @Html.DisplayFor(modelItem => item.StartDate)</p>
+                <p class="card-text">End Date: @Html.DisplayFor(modelItem => item.EndDate)</p>
+                <p class="card-text">Transaction Date: @Html.DisplayFor(modelItem => item.CreatedDate)</p>
+            </div>
+        </div>
+    }
+</div>

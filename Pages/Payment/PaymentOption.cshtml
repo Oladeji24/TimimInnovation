@@ -1,0 +1,108 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization;
+@model TimimInnovation.Pages.Payment.PaymentOptionModel
+
+@{
+    ViewData["Title"] = "Payment Options";
+}
+
+<h1>Select Payment Option</h1>
+
+<div class="payment-options">
+    <form method="post">
+        <div class="accordion accordion-flush" id="paymentmode">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        CASH
+                    </button>
+                </h2>
+                <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#paymentmode">
+                    <div class="accordion-body">
+                        <input type="radio" id="paymentOptionCash" name="paymentOption" value="CASH" required>
+                        <p>Come to our office at:</p>
+                        <p>6 Ladipo Kuku St, Allen 101233, Ikeja, Lagos, Nigeria</p>
+                        <p>to make your cash payment</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        TRANSFER
+                    </button>
+                </h2>
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#paymentmode">
+                    <div class="accordion-body">
+                        <input type="radio" id="paymentOptionTransfer" name="paymentOption" value="TRANSFER" required>
+                        <p>Transfer your payment to:</p>
+                        <p><strong>TIMIM-TIMEIMPORTANT LIMITED</strong></p>
+                        <p><strong>FIRST BANK PLC</strong></p>
+                        <p><strong>ACCOUNT NO: 2042218940</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+                        CHEQUE
+                    </button>
+                </h2>
+                <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#paymentmode">
+                    <div class="accordion-body">
+                        <input type="radio" id="paymentOptionCheque" name="paymentOption" value="CHEQUE" required>
+                        <p>Make your Cheque to:</p>
+                        <p><strong>TIMIM-TIMEIMPORTANT LIMITED</strong></p>
+                        <p><strong>NOTE: You cannot take possession of the property until payment is confirmed</strong></p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+                        CARD
+                    </button>
+                </h2>
+                <div id="flush-collapseFour" class="accordion-collapse collapse" data-bs-parent="#paymentmode">
+                    <div class="accordion-body">
+                        <input type="radio" id="paymentOptionCard" name="paymentOption" value="CARD" required>
+                        <div class="container">
+                            <p><strong>CARD PAYMENT</strong></p>
+                            <!-- Updated section with a button linking to the provided URL -->
+                            <a href="https://pay.squadco.com/timimtransactionpayment" target="_blank" class="btn btn-primary">
+                                Make Payment
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<!-- Button to Proceed to Dashboard -->
+<div class="text-center mt-4">
+    <a href="/DashboardClient/Client" class="btn btn-primary">Proceed to Dashboard</a>
+</div>
+
+<style>
+    .payment-options ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .payment-options li {
+        margin: 10px 0;
+    }
+
+    .payment-options a {
+        background-color: #007BFF;
+        color: white;
+        padding: 10px 15px;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+        .payment-options a:hover {
+            background-color: #0056b3;
+        }
+</style>

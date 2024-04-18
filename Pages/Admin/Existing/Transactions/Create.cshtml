@@ -1,0 +1,135 @@
+﻿@page
+@using TimimInnovation.Models
+@model TimimInnovation.Pages.Admin.Existing.Transactions.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Timim Tenancy Form</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TimimTransaction.Username" class="control-label">LandLord-NIN</label>
+                <input asp-for="TimimTransaction.Username" class="form-control" />
+                <span asp-validation-for="TimimTransaction.Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimTransaction.FirstName" class="control-label"></label>
+                <input asp-for="TimimTransaction.FirstName" class="form-control" />
+                <span asp-validation-for="TimimTransaction.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimTransaction.LastName" class="control-label"></label>
+                <input asp-for="TimimTransaction.LastName" class="form-control" />
+                <span asp-validation-for="TimimTransaction.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimTransaction.MiddleName" class="control-label"></label>
+                <input asp-for="TimimTransaction.MiddleName" class="form-control" />
+                <span asp-validation-for="TimimTransaction.MiddleName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimTransaction.Sex" class="control-label"></label>
+                <select asp-for="TimimTransaction.Sex" asp-items="Html.GetEnumSelectList<Gender>()" class="form-control"></select>
+                <span asp-validation-for="TimimTransaction.Sex" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimTransaction.Email" class="control-label"></label>
+                <input asp-for="TimimTransaction.Email" class="form-control" />
+                <span asp-validation-for="TimimTransaction.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimTransaction.WhatsAppNumber" class="control-label"></label>
+                <input asp-for="TimimTransaction.WhatsAppNumber" class="form-control" />
+                <span asp-validation-for="TimimTransaction.WhatsAppNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimTransaction.MobileNumber" class="control-label"></label>
+                <input asp-for="TimimTransaction.MobileNumber" class="form-control" />
+                <span asp-validation-for="TimimTransaction.MobileNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimTransaction.NIN" class="control-label"></label>
+                <input asp-for="TimimTransaction.NIN" class="form-control" />
+                <span asp-validation-for="TimimTransaction.NIN" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimTransaction.OtherMeansOfIdentification" class="control-label"></label>
+                <input asp-for="TimimTransaction.OtherMeansOfIdentification" class="form-control" value="Optional" />
+                <span asp-validation-for="TimimTransaction.OtherMeansOfIdentification" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimTransaction.IdentificationNumber" class="control-label"></label>
+                <input asp-for="TimimTransaction.IdentificationNumber" class="form-control" value="Optional" />
+                <span asp-validation-for="TimimTransaction.IdentificationNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimTransaction.TransactionCode" class="control-label"></label>
+                <input asp-for="TimimTransaction.TransactionCode" class="form-control" />
+                <span asp-validation-for="TimimTransaction.TransactionCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimTransaction.PropertyCode" class="control-label"></label>
+                <input asp-for="TimimTransaction.PropertyCode" class="form-control" />
+                <span asp-validation-for="TimimTransaction.PropertyCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimTransaction.PaymentStatus" class="control-label"></label>
+                <select asp-for="TimimTransaction.PaymentStatus" asp-items="Html.GetEnumSelectList<PaymentStatus>()" class="form-control"></select>
+                <span asp-validation-for="TimimTransaction.PaymentStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimTransaction.PaymentMethod" class="control-label"></label>
+                <select asp-for="TimimTransaction.PaymentMethod" asp-items="Html.GetEnumSelectList<PaymentMethod>()" class="form-control"></select>
+                <span asp-validation-for="TimimTransaction.PaymentMethod" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimTransaction.PropertyName" class="control-label"></label>
+                <input asp-for="TimimTransaction.PropertyName" class="form-control" />
+                <span asp-validation-for="TimimTransaction.PropertyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimTransaction.Price" class="control-label"></label>
+                <input asp-for="TimimTransaction.Price" class="form-control" />
+                <span asp-validation-for="TimimTransaction.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimTransaction.StartDate" class="control-label"></label>
+                <input asp-for="TimimTransaction.StartDate" class="form-control" />
+                <span asp-validation-for="TimimTransaction.StartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimTransaction.EndDate" class="control-label"></label>
+                <input asp-for="TimimTransaction.EndDate" class="form-control" />
+                <span asp-validation-for="TimimTransaction.EndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimTransaction.CreatedDate" class="control-label"></label>
+                <input asp-for="TimimTransaction.CreatedDate" class="form-control" />
+                <span asp-validation-for="TimimTransaction.CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimTransaction.UpdatedDate" class="control-label"></label>
+                <input asp-for="TimimTransaction.UpdatedDate" class="form-control" />
+                <span asp-validation-for="TimimTransaction.UpdatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

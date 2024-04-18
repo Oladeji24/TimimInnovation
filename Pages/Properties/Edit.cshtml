@@ -1,0 +1,235 @@
+﻿@page
+@model TimimInnovation.Pages.Properties.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>TimimBCProperties</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TimimBCProperties.PropertyId" />
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.Username" class="control-label"></label>
+                <input asp-for="TimimBCProperties.Username" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.PropertyName" class="control-label"></label>
+                <input asp-for="TimimBCProperties.PropertyName" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.PropertyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.PropertyType" class="control-label"></label>
+                <select asp-for="TimimBCProperties.PropertyType" class="form-control"></select>
+                <span asp-validation-for="TimimBCProperties.PropertyType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.TransactionPurpose" class="control-label"></label>
+                <select asp-for="TimimBCProperties.TransactionPurpose" class="form-control"></select>
+                <span asp-validation-for="TimimBCProperties.TransactionPurpose" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.TransactionStatus" class="control-label"></label>
+                <select asp-for="TimimBCProperties.TransactionStatus" class="form-control"></select>
+                <span asp-validation-for="TimimBCProperties.TransactionStatus" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.PropertyCode" class="control-label"></label>
+                <input asp-for="TimimBCProperties.PropertyCode" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.PropertyCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.TransactionCode" class="control-label"></label>
+                <input asp-for="TimimBCProperties.TransactionCode" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.TransactionCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.NoOfLivingRoom" class="control-label"></label>
+                <input asp-for="TimimBCProperties.NoOfLivingRoom" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.NoOfLivingRoom" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.NoOfBedrooms" class="control-label"></label>
+                <input asp-for="TimimBCProperties.NoOfBedrooms" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.NoOfBedrooms" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.NoOfBathrooms" class="control-label"></label>
+                <input asp-for="TimimBCProperties.NoOfBathrooms" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.NoOfBathrooms" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.NoOfFloors" class="control-label"></label>
+                <input asp-for="TimimBCProperties.NoOfFloors" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.NoOfFloors" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.PropertySize" class="control-label"></label>
+                <input asp-for="TimimBCProperties.PropertySize" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.PropertySize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.Street" class="control-label"></label>
+                <input asp-for="TimimBCProperties.Street" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.Street" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.LocalGovernmentArea" class="control-label"></label>
+                <input asp-for="TimimBCProperties.LocalGovernmentArea" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.LocalGovernmentArea" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.City" class="control-label"></label>
+                <input asp-for="TimimBCProperties.City" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.City" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.State" class="control-label"></label>
+                <input asp-for="TimimBCProperties.State" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.State" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.Country" class="control-label"></label>
+                <input asp-for="TimimBCProperties.Country" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.Country" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.Price" class="control-label"></label>
+                <input asp-for="TimimBCProperties.Price" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.MaintenanceCost" class="control-label"></label>
+                <input asp-for="TimimBCProperties.MaintenanceCost" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.MaintenanceCost" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.ZipCode" class="control-label"></label>
+                <input asp-for="TimimBCProperties.ZipCode" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.ZipCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.NearestLandmark" class="control-label"></label>
+                <input asp-for="TimimBCProperties.NearestLandmark" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.NearestLandmark" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TimimBCProperties.HasGarage" /> @Html.DisplayNameFor(model => model.TimimBCProperties.HasGarage)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TimimBCProperties.HasSwimmingPool" /> @Html.DisplayNameFor(model => model.TimimBCProperties.HasSwimmingPool)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TimimBCProperties.HasGarden" /> @Html.DisplayNameFor(model => model.TimimBCProperties.HasGarden)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TimimBCProperties.HasBalcony" /> @Html.DisplayNameFor(model => model.TimimBCProperties.HasBalcony)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TimimBCProperties.IsVerified" /> @Html.DisplayNameFor(model => model.TimimBCProperties.IsVerified)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TimimBCProperties.Negotiable" /> @Html.DisplayNameFor(model => model.TimimBCProperties.Negotiable)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TimimBCProperties.WaterSupply" /> @Html.DisplayNameFor(model => model.TimimBCProperties.WaterSupply)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="TimimBCProperties.PowerBackup" /> @Html.DisplayNameFor(model => model.TimimBCProperties.PowerBackup)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.VirtualTourLink" class="control-label"></label>
+                <input asp-for="TimimBCProperties.VirtualTourLink" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.VirtualTourLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.VideoLink" class="control-label"></label>
+                <input asp-for="TimimBCProperties.VideoLink" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.VideoLink" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.RegisterPersonnelCode" class="control-label"></label>
+                <input asp-for="TimimBCProperties.RegisterPersonnelCode" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.RegisterPersonnelCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.ContactNumber" class="control-label"></label>
+                <input asp-for="TimimBCProperties.ContactNumber" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.ContactNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.ContactEmail" class="control-label"></label>
+                <input asp-for="TimimBCProperties.ContactEmail" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.ContactEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.PropertyImage1" class="control-label"></label>
+                <input asp-for="TimimBCProperties.PropertyImage1" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.PropertyImage1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.PropertyImage2" class="control-label"></label>
+                <input asp-for="TimimBCProperties.PropertyImage2" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.PropertyImage2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.PropertyImage3" class="control-label"></label>
+                <input asp-for="TimimBCProperties.PropertyImage3" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.PropertyImage3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.Description" class="control-label"></label>
+                <input asp-for="TimimBCProperties.Description" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.DocumentOnProperty" class="control-label"></label>
+                <input asp-for="TimimBCProperties.DocumentOnProperty" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.DocumentOnProperty" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.CreatedDate" class="control-label"></label>
+                <input asp-for="TimimBCProperties.CreatedDate" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimBCProperties.UpdatedDate" class="control-label"></label>
+                <input asp-for="TimimBCProperties.UpdatedDate" class="form-control" />
+                <span asp-validation-for="TimimBCProperties.UpdatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

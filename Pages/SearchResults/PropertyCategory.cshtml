@@ -1,0 +1,64 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization;
+@attribute [Authorize]
+@model TimimInnovation.Pages.SearchResults.PropertyCategoryModel
+
+@{
+    ViewData["Title"] = "Properties in " + Model.PropertyTypeString + " Category";
+}
+
+<div class="container my-5">
+    <h2 class="text-center mb-4">@ViewData["Title"]</h2>
+
+    @if (Model.TimimProperties.Any())
+    {
+        <div class="row">
+            @foreach (var item in Model.TimimProperties)
+            {
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <!-- Display Property Image -->
+                        <img src="@item.PropertyImage1" alt="Property Image" class="card-img-top" style="height:200px; object-fit:cover;">
+                        <div class="card-body">
+                            <h5 class="card-title">@item.PropertyName</h5>
+                            <p class="card-text">@item.Description?.Substring(0, Math.Min(item.Description.Length, 120)) + "..."</p>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item"><strong>Location:</strong> @item.Street, @item.City, @item.State</li>
+                                <li class="list-group-item"><strong>Name:</strong> @item.PropertyName</li>
+                                <li class="list-group-item"><strong>Type:</strong> @item.PropertyType</li>
+                                <li class="list-group-item"><strong>Status:</strong> @item.TransactionStatus</li>
+                                <li class="list-group-item"><strong>Transaction Code:</strong> @item.TransactionCode</li>
+                                <li class="list-group-item"><strong>Property Code:</strong> @item.PropertyCode</li>
+                                <li class="list-group-item"><strong>Rooms:</strong> @item.NoOfLivingRoom Living Rooms, @item.NoOfBedrooms Bedrooms, @item.NoOfBathrooms Bathrooms</li>
+                                <li class="list-group-item">
+                                    <strong>Features:</strong>
+                                    @(item.HasGarage ? "Garage, " : "") @(item.HasSwimmingPool ? "Swimming Pool, " : "") @(item.HasGarden ? "Garden, " : "") @(item.HasBalcony ? "Balcony" : "")
+                                </li>
+                                <li class="list-group-item"><strong>Price:</strong> @item.Price.ToString("C2")</li>
+                                <li class="list-group-item"><strong>Agent:</strong> @item.ContactNumber, @item.ContactEmail</li>
+                            </ul>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between align-items-center">
+                            <small class="text-muted">Last Updated: @item.UpdatedDate.ToShortDateString()</small>
+                            <button onclick="navigateToTransaction('@item.TransactionCode', '@item.PropertyCode', '@item.Price', '@item.PropertyName')" class="btn btn-primary btn-sm">@item.TransactionPurpose</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            No properties found for the category "@Model.PropertyTypeString".
+        </div>
+    }
+</div>
+
+<script>
+    function navigateToTransaction(transactionCode, propertyCode, price, propertyName) {
+        // Redirect to the Transactions/Create page
+        var url = `../Transactions/Create?TransactionCode=${transactionCode}&PropertyCode=${propertyCode}&Price=${price}&PropertyName=${propertyName}`;
+        window.location.href = url;
+    }
+</script>

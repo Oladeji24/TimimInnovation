@@ -1,0 +1,38 @@
+﻿@page
+@model TimimInnovation.Pages.ClientAccords.IndexModel
+
+@{
+    ViewData["Title"] = "Client Accords";
+}
+
+<style>
+    /* Adding a CSS style for scrollable content */
+    .scrollable-content {
+        max-height: 400px; /* adjust this value as needed */
+        overflow-y: auto;
+        padding: 10px;
+        border: 1px solid #e0e0e0;
+        margin-bottom: 20px;
+    }
+</style>
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="scrollable-content">
+    @if (Model.ClientConcord.Any())
+    {
+        <div class="alert alert-info">
+            <h4>@Model.ClientConcord.First().ClientConcordTitle</h4>
+            <p>@Model.ClientConcord.First().ClientConcordText</p>
+        </div>
+
+        <form method="post">
+            <button type="submit" asp-page-handler="Accept" class="btn btn-success">Accept</button>
+            <button type="submit" asp-page-handler="Decline" class="btn btn-danger">Decline</button>
+        </form>
+    }
+    else
+    {
+        <div class="alert alert-danger">No terms and conditions found for your selected service type.</div>
+    }
+</div>

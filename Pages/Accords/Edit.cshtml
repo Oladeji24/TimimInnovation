@@ -1,0 +1,55 @@
+﻿@page
+@model TimimInnovation.Pages.Accords.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Concord</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Concord.ConcordId" />
+            <div class="form-group">
+                <label asp-for="Concord.ConcordTitle" class="control-label"></label>
+                <input asp-for="Concord.ConcordTitle" class="form-control" />
+                <span asp-validation-for="Concord.ConcordTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Concord.ConcordContinent" class="control-label"></label>
+                <input asp-for="Concord.ConcordContinent" class="form-control" />
+                <span asp-validation-for="Concord.ConcordContinent" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Concord.ConcordCountry" class="control-label"></label>
+                <input asp-for="Concord.ConcordCountry" class="form-control" />
+                <span asp-validation-for="Concord.ConcordCountry" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Concord.ConcordState" class="control-label"></label>
+                <input asp-for="Concord.ConcordState" class="form-control" />
+                <span asp-validation-for="Concord.ConcordState" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Concord.ConcordText" class="control-label"></label>
+                <input asp-for="Concord.ConcordText" class="form-control" />
+                <span asp-validation-for="Concord.ConcordText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

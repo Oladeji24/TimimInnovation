@@ -1,0 +1,29 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization;
+@model TimimInnovation.Pages.PropertyConnect.RegisterPersonnelModel
+@attribute [Authorize]
+
+<style>
+    .equal-width-button {
+        width: 300px; /* Adjust this value as per your needs */
+        display: inline-block;
+    }
+</style>
+
+<h2 class="text-center mb-4">Dashboard Actions</h2>
+
+<div class="container">
+    <div class="vh-75 d-flex justify-content-center align-items-center">
+        <div class="row">
+            <div class="col-md-6 mb-4 d-flex justify-content-center">
+                <a href="@Url.Page("/Dashboards/AgentDashboard")" class="btn btn-primary equal-width-button">Agent Dashboard</a>
+            </div>
+            <div class="col-md-6 mb-4 d-flex justify-content-center">
+                <a href="@Url.Page("/Dashboards/PropertyOwnerDashboard")" class="btn btn-primary equal-width-button">Property Owner Dashboard</a>
+            </div>
+            <div class="col-md-12 mb-4 d-flex justify-content-center">
+                <a href="@Url.Page("/PropertyConnect/GetAgentPersonnelCode")" class="btn btn-primary equal-width-button">Get Property Loader Access Code</a>
+            </div>
+        </div>
+    </div>
+</div>

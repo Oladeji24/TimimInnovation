@@ -1,0 +1,97 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization;
+@attribute [Authorize(Roles = "Admin")]
+@model TimimInnovation.Pages.Admin.Agents.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>TimimAgent</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="TimimAgent.AgentId" />
+            <div class="form-group">
+                <label asp-for="TimimAgent.Username" class="control-label"></label>
+                <input asp-for="TimimAgent.Username" class="form-control" />
+                <span asp-validation-for="TimimAgent.Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimAgent.FirstName" class="control-label"></label>
+                <input asp-for="TimimAgent.FirstName" class="form-control" />
+                <span asp-validation-for="TimimAgent.FirstName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimAgent.LastName" class="control-label"></label>
+                <input asp-for="TimimAgent.LastName" class="form-control" />
+                <span asp-validation-for="TimimAgent.LastName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimAgent.AgentCode" class="control-label"></label>
+                <input asp-for="TimimAgent.AgentCode" class="form-control" />
+                <span asp-validation-for="TimimAgent.AgentCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimAgent.Picture" class="control-label"></label>
+                <input asp-for="TimimAgent.Picture" class="form-control" />
+                <span asp-validation-for="TimimAgent.Picture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimAgent.Email" class="control-label"></label>
+                <input asp-for="TimimAgent.Email" class="form-control" />
+                <span asp-validation-for="TimimAgent.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimAgent.PhoneNumber" class="control-label"></label>
+                <input asp-for="TimimAgent.PhoneNumber" class="form-control" />
+                <span asp-validation-for="TimimAgent.PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimAgent.PropertyCode" class="control-label"></label>
+                <input asp-for="TimimAgent.PropertyCode" class="form-control" />
+                <span asp-validation-for="TimimAgent.PropertyCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimAgent.TransactionCode" class="control-label"></label>
+                <input asp-for="TimimAgent.TransactionCode" class="form-control" />
+                <span asp-validation-for="TimimAgent.TransactionCode" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimAgent.Commission" class="control-label"></label>
+                <input asp-for="TimimAgent.Commission" class="form-control" />
+                <span asp-validation-for="TimimAgent.Commission" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimAgent.AgencyName" class="control-label"></label>
+                <input asp-for="TimimAgent.AgencyName" class="form-control" />
+                <span asp-validation-for="TimimAgent.AgencyName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimAgent.CreatedDate" class="control-label"></label>
+                <input asp-for="TimimAgent.CreatedDate" class="form-control" />
+                <span asp-validation-for="TimimAgent.CreatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TimimAgent.UpdatedDate" class="control-label"></label>
+                <input asp-for="TimimAgent.UpdatedDate" class="form-control" />
+                <span asp-validation-for="TimimAgent.UpdatedDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

@@ -1,0 +1,53 @@
+﻿@page
+@attribute [Microsoft.AspNetCore.Authorization.Authorize(Roles = "Property-Owner,Admin,Propertyloader")]
+@using Microsoft.AspNetCore.Authorization;
+@model PropertyOwnerDashboardModel
+@attribute [Authorize]
+@{
+    ViewData["Title"] = "Property Owner Dashboard";
+}
+
+<div class="container mt-5">
+
+    <!-- Centered welcome message -->
+    <div class="text-center">
+        <h1>Welcome, @User.Identity.Name!</h1>
+    </div>
+
+    <!-- Property table -->
+    <div class="mt-5">
+        <div class="d-flex justify-content-between align-items-center">
+            <h2>Your Properties</h2>
+            <!-- Add Property button placed near the title for better visibility -->
+            <a asp-page="/Properties/Create" class="btn btn-success">Add Property</a>
+        </div>
+
+        <table class="table table-bordered table-hover mt-3">
+            <thead class="thead-light">
+                <tr>
+                    <th>Property Name</th>
+                    <th>Property Type</th>
+                    <th>Property Code</th>
+                    <th>Date Created</th>
+                    <th>Price</th>
+                    <th>Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var property in Model.TimimBCProperties)
+                {
+                    <tr>
+                        <td>@(property.PropertyName ?? "N/A")</td>
+                        <td>@property.PropertyType</td>
+                        <td>@(property.PropertyCode ?? "N/A")</td>
+                        <td>@property.CreatedDate.ToShortDateString()</td>
+                        <td>@property.Price</td>
+                        <td>
+                            <a asp-page="/Properties/PropertyDetails" asp-route-id="@property.PropertyId" class="btn btn-sm btn-info">Details</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

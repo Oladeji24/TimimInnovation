@@ -1,0 +1,375 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization;
+@model TimimInnovation.Pages.Properties.CreateModel
+@attribute [Authorize]
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TimimBCProperties</h4>
+<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <form method="post">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <!-- Basic Information -->
+            <div class="card mb-4">
+                <div class="card-header">Basic Information</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.Username" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.Username" class="form-control" readonly />
+                        <span asp-validation-for="TimimBCProperties.Username" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.PropertyName" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.PropertyName" class="form-control" required />
+                        <span asp-validation-for="TimimBCProperties.PropertyName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.PropertyType" class="control-label"></label>
+                        <select asp-for="TimimBCProperties.PropertyType"
+                                asp-items="Model.PropertyTypes"
+                                class="form-control"></select>
+                        <span asp-validation-for="TimimBCProperties.PropertyType" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.TransactionPurpose" class="control-label"></label>
+                        <select asp-for="TimimBCProperties.TransactionPurpose"
+                                asp-items="Model.TransactionPurposes"
+                                class="form-control"></select>
+                        <span asp-validation-for="TimimBCProperties.TransactionPurpose" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.TransactionStatus" class="control-label"></label>
+                        <select asp-for="TimimBCProperties.TransactionStatus"
+                                asp-items="Model.TransactionStatuses"
+                                class="form-control"></select>
+                        <span asp-validation-for="TimimBCProperties.TransactionStatus" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.PropertyCode" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.PropertyCode" class="form-control" readonly />
+                        <span asp-validation-for="TimimBCProperties.PropertyCode" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.TransactionCode" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.TransactionCode" class="form-control" readonly />
+                        <span asp-validation-for="TimimBCProperties.TransactionCode" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Property Specifications -->
+            <div class="card mb-4">
+                <div class="card-header">Property Specifications</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.NoOfLivingRoom" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.NoOfLivingRoom" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.NoOfLivingRoom" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.NoOfBedrooms" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.NoOfBedrooms" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.NoOfBedrooms" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.NoOfBathrooms" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.NoOfBathrooms" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.NoOfBathrooms" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.NoOfFloors" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.NoOfFloors" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.NoOfFloors" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.PropertySize" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.PropertySize" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.PropertySize" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Location and Pricing -->
+            <div class="card mb-4">
+                <div class="card-header">Location and Pricing</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.Street" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.Street" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.Street" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.LocalGovernmentArea" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.LocalGovernmentArea" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.LocalGovernmentArea" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.City" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.City" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.City" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.State" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.State" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.State" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.Country" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.Country" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.Country" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.Price" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.Price" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.Price" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.MaintenanceCost" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.MaintenanceCost" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.MaintenanceCost" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.ZipCode" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.ZipCode" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.ZipCode" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.NearestLandmark" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.NearestLandmark" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.NearestLandmark" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Features and Amenities -->
+            <div class="card mb-4">
+                <div class="card-header">Features and Amenities</div>
+                <div class="card-body">
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="TimimBCProperties.HasGarage" /> @Html.DisplayNameFor(model => model.TimimBCProperties.HasGarage)
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="TimimBCProperties.HasSwimmingPool" /> @Html.DisplayNameFor(model => model.TimimBCProperties.HasSwimmingPool)
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="TimimBCProperties.HasGarden" /> @Html.DisplayNameFor(model => model.TimimBCProperties.HasGarden)
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="TimimBCProperties.HasBalcony" /> @Html.DisplayNameFor(model => model.TimimBCProperties.HasBalcony)
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="TimimBCProperties.Negotiable" /> @Html.DisplayNameFor(model => model.TimimBCProperties.Negotiable)
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="TimimBCProperties.WaterSupply" /> @Html.DisplayNameFor(model => model.TimimBCProperties.WaterSupply)
+                        </label>
+                    </div>
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="TimimBCProperties.PowerBackup" /> @Html.DisplayNameFor(model => model.TimimBCProperties.PowerBackup)
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Media Links -->
+            <div class="card mb-4">
+                <div class="card-header">Media Links</div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.VirtualTourLink" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.VirtualTourLink" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.VirtualTourLink" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.VideoLink" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.VideoLink" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.VideoLink" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Registration and Contact -->
+            <div class="card mb-4">
+                <div class="card-header">Registration and Contact</div>
+                <div class="card-body">
+                    <!-- Add NIN input field here -->
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.NIN" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.NIN" class="form-control" required />
+                        <span asp-validation-for="TimimBCProperties.NIN" class="text-danger"></span>
+                    </div>
+
+                    <!-- Continue with other fields for registration and contact -->
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.RegisterPersonnelCode" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.RegisterPersonnelCode" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.RegisterPersonnelCode" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.ContactNumber" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.ContactNumber" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.ContactNumber" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.ContactEmail" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.ContactEmail" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.ContactEmail" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Images and Description -->
+            <div class="card mb-4">
+                <div class="card-header">Images and Description</div>
+                <div class="card-body">
+                    <a id="upload_widget_property1" class="btn btn-primary">Upload Property Image One</a>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.PropertyImage1" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.PropertyImage1" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.PropertyImage1" class="text-danger"></span>
+                    </div>
+
+                    <a id="upload_widget_property2" class="btn btn-primary">Upload Property Image Two</a>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.PropertyImage2" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.PropertyImage2" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.PropertyImage2" class="text-danger"></span>
+                    </div>
+
+                    <a id="upload_widget_property3" class="btn btn-primary">Upload Property Image Three</a>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.PropertyImage3" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.PropertyImage3" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.PropertyImage3" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.Description" class="control-label"></label>
+                        <textarea asp-for="TimimBCProperties.Description" class="form-control"></textarea>
+                        <span asp-validation-for="TimimBCProperties.Description" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- Document On Property -->
+            <div class="card mb-4">
+                <div class="card-header">Document On Property</div>
+                <div class="card-body">
+                    <a id="upload_widget_UploadDocument" class="btn btn-primary">Upload Document</a>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.DocumentOnProperty" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.DocumentOnProperty" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.DocumentOnProperty" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <!-- Verification and Dates -->
+            <div class="card mb-4">
+                <div class="card-header">Verification and Dates</div>
+                <div class="card-body">
+                    <div class="form-group form-check">
+                        <label class="form-check-label">
+                            <input class="form-check-input" asp-for="TimimBCProperties.IsVerified" /> @Html.DisplayNameFor(model => model.TimimBCProperties.IsVerified)
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.CreatedDate" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.CreatedDate" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.CreatedDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="TimimBCProperties.UpdatedDate" class="control-label"></label>
+                        <input asp-for="TimimBCProperties.UpdatedDate" class="form-control" />
+                        <span asp-validation-for="TimimBCProperties.UpdatedDate" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to Properties</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+
+    <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"></script>
+    <script>
+        var widget1 = cloudinary.createUploadWidget({
+            cloudName: 'dqywlnldk',
+            uploadPreset: 'TIMIMPROP'
+        }, (error, result) => {
+            if (!error && result && result.event === "success") {
+                document.getElementById("TimimBCProperties_PropertyImage1").value = result.info.url;
+            }
+        });
+
+        var widget2 = cloudinary.createUploadWidget({
+            cloudName: 'dqywlnldk',
+            uploadPreset: 'TIMIMPROP'
+        }, (error, result) => {
+            if (!error && result && result.event === "success") {
+                document.getElementById("TimimBCProperties_PropertyImage2").value = result.info.url;
+            }
+        });
+
+        var widget3 = cloudinary.createUploadWidget({
+            cloudName: 'dqywlnldk',
+            uploadPreset: 'TIMIMPROP'
+        }, (error, result) => {
+            if (!error && result && result.event === "success") {
+                document.getElementById("TimimBCProperties_PropertyImage3").value = result.info.url;
+            }
+        });
+
+        var widgetUploadDocument = cloudinary.createUploadWidget({
+            cloudName: 'dqywlnldk',
+            uploadPreset: 'TIMIMPROP'
+        }, (error, result) => {
+            if (!error && result && result.event === "success") {
+                document.getElementById("TimimBCProperties_DocumentOnProperty").value = result.info.url;
+            }
+        });
+
+        document.getElementById("upload_widget_property1").addEventListener("click", function () {
+            widget1.open();
+        }, false);
+
+        document.getElementById("upload_widget_property2").addEventListener("click", function () {
+            widget2.open();
+        }, false);
+
+        document.getElementById("upload_widget_property3").addEventListener("click", function () {
+            widget3.open();
+        }, false);
+
+        document.getElementById("upload_widget_UploadDocument").addEventListener("click", function () {
+            widgetUploadDocument.open();
+        }, false);
+    </script>
+}

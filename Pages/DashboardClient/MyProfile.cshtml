@@ -1,0 +1,42 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization;
+@attribute [Authorize]
+@model TimimInnovation.Pages.DashboardClient.MyProfileModel
+
+@{
+    ViewData["Title"] = "MyProfile";
+}
+
+<h1>My Profile</h1>
+
+<p>
+
+</p>
+
+<div class="card-deck">
+    @{
+        var lastTransaction = Model.TimimTransaction.OrderBy(t => t.CreatedDate).LastOrDefault();
+    }
+
+    @if (lastTransaction != null)
+    {
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Username: @Html.DisplayFor(modelItem => lastTransaction.Username)</h5>
+                <p class="card-text">First Name: @Html.DisplayFor(modelItem => lastTransaction.FirstName)</p>
+                <p class="card-text">Last Name: @Html.DisplayFor(modelItem => lastTransaction.LastName)</p>
+                <p class="card-text">Middle Name: @Html.DisplayFor(modelItem => lastTransaction.MiddleName)</p>
+                <p class="card-text">Sex: @Html.DisplayFor(modelItem => lastTransaction.Sex)</p>
+                <p class="card-text">Email: @Html.DisplayFor(modelItem => lastTransaction.Email)</p>
+                <p class="card-text">WhatsApp Number: @Html.DisplayFor(modelItem => lastTransaction.WhatsAppNumber)</p>
+                <p class="card-text">Mobile Number: @Html.DisplayFor(modelItem => lastTransaction.MobileNumber)</p>
+                <p class="card-text">NIN: @Html.DisplayFor(modelItem => lastTransaction.NIN)</p>
+                <p class="card-text">Other Means of Identification: @Html.DisplayFor(modelItem => lastTransaction.OtherMeansOfIdentification)</p>
+                <p class="card-text">Identification Number: @Html.DisplayFor(modelItem => lastTransaction.IdentificationNumber)</p>
+
+                <div class="text-right">
+                </div>
+            </div>
+        </div>
+    }
+</div>

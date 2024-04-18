@@ -1,0 +1,60 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization;
+@attribute [Authorize(Roles = "Admin")]
+@model TimimInnovation.Pages.Admin.Properties.IndexModel
+
+<h1 class="mb-4">Properties</h1>
+
+<div class="container">
+
+    <!-- Dropdown for filtering by NIN -->
+    <form method="get" class="mb-4">
+        <div class="form-group">
+            <label for="ninDropdown">Filter by NIN:</label>
+            <select id="ninDropdown" name="SelectedNIN" class="form-control" onchange="this.form.submit()">
+                <option value="">-- Select a NIN --</option>
+                @foreach (var nin in Model.NINs)
+                {
+                    <option value="@nin" selected="@(Model.SelectedNIN == nin ? "selected" : null)">@nin</option>
+                }
+            </select>
+        </div>
+    </form>
+
+    <!-- Displaying the properties as cards -->
+    <div class="row">
+        @foreach (var item in Model.TimimBCProperties)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <!-- Displaying the image -->
+                    <img src="@item.PropertyImage1" alt="Property Image" class="card-img-top">
+
+                    <div class="card-body">
+                        <h5 class="card-title">@Html.DisplayFor(modelItem => item.PropertyName)</h5>
+                        <p><strong>Username:</strong> @Html.DisplayFor(modelItem => item.Username)</p>
+                        <p><strong>Type:</strong> @Html.DisplayFor(modelItem => item.PropertyType)</p>
+                        <p><strong>Price:</strong> @Html.DisplayFor(modelItem => item.Price)</p>
+                        <p><strong>Transaction Status:</strong> @Html.DisplayFor(modelItem => item.TransactionStatus)</p>
+                        <p><strong>Property Code:</strong> @Html.DisplayFor(modelItem => item.PropertyCode)</p>
+                        <p><strong>Transaction Code:</strong> @Html.DisplayFor(modelItem => item.TransactionCode)</p>
+                        <p><strong>Street:</strong> @Html.DisplayFor(modelItem => item.Street)</p>
+                        <p><strong>City:</strong> @Html.DisplayFor(modelItem => item.City)</p>
+                        <p><strong>State:</strong> @Html.DisplayFor(modelItem => item.State)</p>
+                        <p><strong>Country:</strong> @Html.DisplayFor(modelItem => item.Country)</p>
+                        <p><strong>Zip Code:</strong> @Html.DisplayFor(modelItem => item.ZipCode)</p>
+                        <p><strong>Nearest Landmark:</strong> @Html.DisplayFor(modelItem => item.NearestLandmark)</p>
+                        <p><strong>Water Supply:</strong> @Html.DisplayFor(modelItem => item.WaterSupply)</p>
+                        <p><strong>Description:</strong> @Html.DisplayFor(modelItem => item.Description)</p>
+
+                        <div class="mt-3">
+                            <a asp-page="./Edit" asp-route-id="@item.PropertyId" class="btn btn-primary btn-sm">Edit</a>
+                            <a asp-page="./Details" asp-route-id="@item.PropertyId" class="btn btn-info btn-sm">Details</a>
+                            <a asp-page="./Delete" asp-route-id="@item.PropertyId" class="btn btn-danger btn-sm">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

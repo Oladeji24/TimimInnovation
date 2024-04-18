@@ -1,0 +1,67 @@
+﻿@page
+@model TimimInnovation.Pages.TenantComplainStation.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>TenantComplain</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TenantComplain.TenantName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TenantComplain.TenantName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TenantComplain.TenantPhoneNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TenantComplain.TenantPhoneNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TenantComplain.TenantEmail)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TenantComplain.TenantEmail)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TenantComplain.PropertyAddress)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TenantComplain.PropertyAddress)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TenantComplain.LandLordtFullName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TenantComplain.LandLordtFullName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TenantComplain.LandLoordNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TenantComplain.LandLoordNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TenantComplain.TenantComplainText)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TenantComplain.TenantComplainText)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TenantComplain.ComplainDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TenantComplain.ComplainDate)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.TenantComplain?.TenantComplainId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

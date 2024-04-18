@@ -1,0 +1,89 @@
+﻿@page
+@model TimimInnovation.Pages.Transactions.PreviewModel
+
+@{
+    ViewData["Title"] = "Preview";
+}
+
+<h1 class="mt-4">Preview</h1>
+
+<div class="container mt-4">
+    @if (Model.LastTransaction != null)
+    {
+        <div class="card">
+            <div class="card-header">
+                <h5 class="card-title">Transaction Preview</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>First Name:</strong> @Model.LastTransaction.FirstName</p>
+                        <p><strong>Last Name:</strong> @Model.LastTransaction.LastName</p>
+                        <p><strong>NIN:</strong> @Model.LastTransaction.NIN</p>
+                        <p><strong>Property Code:</strong> @Model.LastTransaction.PropertyCode</p>
+                        <p><strong>Payment Status:</strong> @Model.LastTransaction.PaymentStatus</p>
+                        <p><strong>Payment Method:</strong> @Model.LastTransaction.PaymentMethod</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Receipt No:</strong> @Model.LastTransaction.ReceiptNo</p>
+                        <p><strong>Property Name:</strong> @Model.LastTransaction.PropertyName</p>
+                        <p><strong>Price:</strong> &#x20A6;@Model.LastTransaction.Price.ToString("N2")</p>
+                        <p><strong>Start Date:</strong> @Model.LastTransaction.StartDate.ToShortDateString()</p>
+                        <p><strong>End Date:</strong> @Model.LastTransaction.EndDate.ToShortDateString()</p>
+                        <p>
+                            <strong>Last updated:</strong> @Model.LastTransaction.UpdatedDate.ToShortDateString()
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <a asp-page="./Edit" asp-route-id="@Model.LastTransaction.TransactionId" class="btn btn-primary">Edit</a>
+
+                <!-- Proceed to Payment Button -->
+                <a id="proceedLink" href="/Payment/PaymentOption" class="btn btn-success mt-2" disabled>Proceed to Payment</a>
+
+                <!-- Link to Terms and Conditions -->
+                <p class="mt-3">
+                    <a id="termsLink" href="/ClientAccords/Index">Carefully Read the Terms and Conditions</a>
+                </p>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info">
+            No property data available for preview.
+        </div>
+    }
+
+    <!-- Transaction Type Selection -->
+    <form method="post" class="mt-3" asp-antiforgery="false">
+        <label>Please select your transaction type:</label>
+        <div class="d-inline-flex">
+            @foreach (var type in new[] { "Sales", "Rent", "Shortage", "Booking" })
+            {
+                <div class="mr-3">
+                    <input type="radio" id="@type" name="ServiceType" value="@type" onchange="updateServiceType(this.value)" />
+                    <label for="@type">@type</label>
+                </div>
+            }
+        </div>
+
+        <!-- Hidden submit button -->
+        <input type="submit" value="Set Transaction Type" style="display:none;" />
+    </form>
+</div>
+
+@section Scripts {
+    <script>
+        // Disable the Proceed to Payment button onload
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("proceedLink").setAttribute("disabled", "true");
+        });
+
+        function updateServiceType(value) {
+            document.getElementById("ServiceType").value = value;
+            document.getElementById("proceedLink").removeAttribute("disabled");
+        }
+    </script>
+}

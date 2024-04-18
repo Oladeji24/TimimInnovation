@@ -1,0 +1,57 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization;
+@attribute [Authorize(Roles = "Admin")]
+@model TimimInnovation.Pages.Admin.Agents.IndexModel
+
+@{
+    ViewData["Title"] = "Agent List";
+}
+
+<h1 class="mb-4">Agents</h1>
+
+<div class="container">
+
+    <p>
+        <a asp-page="Create" class="btn btn-primary">Create New</a>
+    </p>
+
+    <!-- Dropdown for filtering by AgencyName -->
+    <form method="get" class="mb-4">
+        <div class="form-group">
+            <label for="agencyDropdown">Filter by Agency:</label>
+            <select id="agencyDropdown" name="SelectedAgencyName" class="form-control" onchange="this.form.submit()">
+                <option value="">-- Select an agency --</option>
+                @foreach (var agency in Model.AgencyNames)
+                {
+                    <option value="@agency" selected="@(Model.SelectedAgencyName == agency ? "selected" : null)">@agency</option>
+                }
+            </select>
+        </div>
+    </form>
+
+    <!-- List of Agents -->
+    @foreach (var item in Model.TimimAgent)
+    {
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">@item.Username</h5>
+                <p class="card-text">
+                    Name: @item.FirstName @item.LastName <br />
+                    Agent Code: @item.AgentCode <br />
+                    Email: @item.Email <br />
+                    Phone: @item.PhoneNumber <br />
+                    Property Code: @item.PropertyCode <br />
+                    Transaction Code: @item.TransactionCode <br />
+                    Commission: @item.Commission <br />
+                    Agency: @item.AgencyName <br />
+                    Created: @item.CreatedDate.ToShortDateString() <br />
+                    Updated: @item.UpdatedDate.ToShortDateString()
+                </p>
+                <a asp-page="./Edit" asp-route-id="@item.AgentId" class="btn btn-warning">Edit</a>
+                <a asp-page="./Details" asp-route-id="@item.AgentId" class="btn btn-info">Details</a>
+                <a asp-page="./Delete" asp-route-id="@item.AgentId" class="btn btn-danger">Delete</a>
+            </div>
+        </div>
+    }
+
+</div>

@@ -1,0 +1,61 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization;
+@attribute [Authorize(Roles = "Admin")]
+@model TimimInnovation.Pages.Admin.Search.Transactions.IndexModel
+
+<h1>Transactions</h1>
+
+<!-- Search Form -->
+<form method="get" class="mb-4">
+    <div class="input-group">
+        <label for="searchQuery" class="sr-only">Search Transactions:</label>
+        <input type="text" id="searchQuery" name="SearchQuery" class="form-control" value="@Model.SearchQuery" placeholder="Search by email or NIN" />
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </div>
+</form>
+<a href="/Admin/Search/Properties/Index" class="mb-4 d-block">Search Properties</a>
+
+<div class="row">
+    @if (Model.TimimTransaction.Any())
+    {
+        foreach (var item in Model.TimimTransaction)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Username</h5>
+                        <p class="card-text">
+                            First Name: @item.FirstName<br>
+                            Last Name: @item.LastName<br>
+                            Email: @item.Email<br>
+                            WhatsApp Number: @item.WhatsAppNumber<br>
+                            Mobile Number: @item.MobileNumber<br>
+                            NIN: @item.NIN<br>
+                            Other Means Of Identification: @item.OtherMeansOfIdentification<br>
+                            Identification Number: @item.IdentificationNumber<br>
+                            Transaction Code: @item.TransactionCode<br>
+                            Property Code: @item.PropertyCode<br>
+                            Payment Status: @item.PaymentStatus<br>
+                            Payment Method: @item.PaymentMethod<br>
+                            Receipt No: @item.ReceiptNo<br>
+                            Property Name: @item.PropertyName<br>
+                            Price: @item.Price<br>
+                            Start Date: @item.StartDate.ToShortDateString()<br>
+                            End Date: @item.EndDate.ToShortDateString()<br>
+                            Created Date: @item.CreatedDate.ToShortDateString()<br>
+                            Updated Date: @item.UpdatedDate.ToShortDateString()<br>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="col-12">
+            <p>No transactions found based on the search query.</p>
+        </div>
+    }
+</div>

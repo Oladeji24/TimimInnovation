@@ -1,0 +1,78 @@
+﻿@page
+@model TimimInnovation.Pages.Admin.ComplaintBox.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimComplaintBox[0].PropertyOwnerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimComplaintBox[0].PropertyOwnerPhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimComplaintBox[0].PropertyOwnerEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimComplaintBox[0].PropertyAddress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimComplaintBox[0].TenantFullName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimComplaintBox[0].TenantPhoneNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimComplaintBox[0].Complain)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimComplaintBox[0].ComplainDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TimimComplaintBox) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyOwnerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyOwnerPhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyOwnerEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyAddress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenantFullName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TenantPhoneNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Complain)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComplainDate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TimimComplaintBoxId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.TimimComplaintBoxId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TimimComplaintBoxId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

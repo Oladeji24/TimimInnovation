@@ -1,0 +1,56 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization;
+@attribute [Authorize(Roles = "Admin")]
+@model TimimInnovation.Pages.Admin.Search.Properties.IndexModel
+
+<h1>Properties</h1>
+
+<!-- Search Form -->
+<form method="get" class="mb-4">
+    <div class="input-group">
+        <label for="searchQuery" class="sr-only">Search Properties:</label>
+        <input type="text" id="searchQuery" name="SearchQuery" class="form-control" value="@Model.SearchQuery" placeholder="Search by NIN or email" />
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </div>
+    </div>
+</form>
+<a href="/Admin/Search/Transactions/Index" class="mb-4 d-block">Search Transactions</a>
+<div class="row">
+    @if (Model.TimimBCProperties.Any())
+    {
+        foreach (var item in Model.TimimBCProperties)
+        {
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="@item.PropertyImage1" alt="Property Image" class="card-img-top">
+                    <div class="card-body">
+                        <h5 class="card-title">@item.PropertyName</h5>
+                        <p class="card-text">
+                            Type: @item.PropertyType<br>
+                            City: @item.City<br>
+                            State: @item.State<br>
+                            Country: @item.Country<br>
+                            Price: @item.Price<br>
+                            Zip Code: @item.ZipCode<br>
+                            No. of Living Rooms: @item.NoOfLivingRoom<br>
+                            No. of Bedrooms: @item.NoOfBedrooms<br>
+                            No. of Bathrooms: @item.NoOfBathrooms<br>
+                            Size: @item.PropertySize<br>
+                            Street: @item.Street<br>
+                            LGA: @item.LocalGovernmentArea<br>
+                            Landmark: @item.NearestLandmark<br>
+                            Description: @item.Description
+                        </p>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="col-12">
+            <p>No properties found based on the search query.</p>
+        </div>
+    }
+</div>

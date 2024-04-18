@@ -1,0 +1,13 @@
+﻿@page
+@model TimimInnovation.Pages.PropertyConnect.RegisterPropertyModel
+@using Microsoft.AspNetCore.Authorization
+@attribute [Authorize]
+
+<h4>@Model.Greeting</h4>
+
+<div style="text-align: center; margin-top: 20px;">
+    <form method="post">
+        <button type="submit" name="role" value="PropertyOwner" class="btn btn-primary">I am a Property Owner</button>
+        <button type="submit" name="role" value="PropertyAgent" class="btn btn-secondary">I am a Property Agent</button>
+    </form>
+</div>

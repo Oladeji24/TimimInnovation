@@ -1,0 +1,162 @@
+﻿@page
+@model TimimInnovation.Pages.Transaction.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].MiddleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].Sex)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].WhatsAppNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].MobileNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].NIN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].OtherMeansOfIdentification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].IdentificationNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].TransactionCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].PropertyCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].PaymentStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].PaymentMethod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].ReceiptNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].PropertyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimTransaction[0].UpdatedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TimimTransaction) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WhatsAppNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MobileNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NIN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OtherMeansOfIdentification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdentificationNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PaymentMethod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ReceiptNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedDate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TransactionId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.TransactionId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TransactionId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,306 @@
+﻿@page
+@model TimimInnovation.Pages.Admin.Existing.Properties.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].NIN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].PropertyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].PropertyType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].TransactionPurpose)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].TransactionStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].PropertyCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].TransactionCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].NoOfLivingRoom)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].NoOfBedrooms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].NoOfBathrooms)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].NoOfFloors)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].PropertySize)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].Street)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].LocalGovernmentArea)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].State)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].MaintenanceCost)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].ZipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].NearestLandmark)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].HasGarage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].HasSwimmingPool)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].HasGarden)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].HasBalcony)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].IsVerified)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].Negotiable)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].WaterSupply)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].PowerBackup)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].FacingDirection)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].View)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].LegalStatus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].PublicTransitAccess)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].VirtualTourLink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].VideoLink)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].RegisterPersonnelCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].ContactNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].ContactEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].PropertyImage1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].PropertyImage2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].PropertyImage3)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].DocumentOnProperty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TimimBCProperties[0].UpdatedDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.TimimBCProperties) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NIN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionPurpose)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TransactionCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfLivingRoom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfBedrooms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfBathrooms)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoOfFloors)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertySize)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Street)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LocalGovernmentArea)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.State)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaintenanceCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NearestLandmark)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasGarage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasSwimmingPool)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasGarden)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HasBalcony)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsVerified)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Negotiable)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WaterSupply)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PowerBackup)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FacingDirection)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.View)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LegalStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublicTransitAccess)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VirtualTourLink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VideoLink)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RegisterPersonnelCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyImage1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyImage2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PropertyImage3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DocumentOnProperty)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UpdatedDate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.PropertyId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.PropertyId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.PropertyId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

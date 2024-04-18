@@ -1,0 +1,79 @@
+﻿@page
+@model TimimInnovation.Pages.Admin.ComplaintBox.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create Complaint</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="TimimComplaintBox.PropertyOwnerName" class="control-label">Property Owner Name:</label>
+                <input asp-for="TimimComplaintBox.PropertyOwnerName" class="form-control" />
+                <span asp-validation-for="TimimComplaintBox.PropertyOwnerName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TimimComplaintBox.PropertyOwnerPhoneNumber" class="control-label">Property Owner Phone Number:</label>
+                <input asp-for="TimimComplaintBox.PropertyOwnerPhoneNumber" class="form-control" />
+                <span asp-validation-for="TimimComplaintBox.PropertyOwnerPhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TimimComplaintBox.PropertyOwnerEmail" class="control-label">Property Owner Email:</label>
+                <input asp-for="TimimComplaintBox.PropertyOwnerEmail" class="form-control" />
+                <span asp-validation-for="TimimComplaintBox.PropertyOwnerEmail" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TimimComplaintBox.PropertyAddress" class="control-label">Property Address:</label>
+                <input asp-for="TimimComplaintBox.PropertyAddress" class="form-control" />
+                <span asp-validation-for="TimimComplaintBox.PropertyAddress" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TimimComplaintBox.TenantFullName" class="control-label">Tenant Full Name:</label>
+                <input asp-for="TimimComplaintBox.TenantFullName" class="form-control" />
+                <span asp-validation-for="TimimComplaintBox.TenantFullName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TimimComplaintBox.TenantPhoneNumber" class="control-label">Tenant Phone Number:</label>
+                <input asp-for="TimimComplaintBox.TenantPhoneNumber" class="form-control" />
+                <span asp-validation-for="TimimComplaintBox.TenantPhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TimimComplaintBox.Complain" class="control-label">Complaint:</label>
+                <textarea asp-for="TimimComplaintBox.Complain" class="form-control" rows="4"></textarea>
+                <span asp-validation-for="TimimComplaintBox.Complain" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TimimComplaintBox.ComplainDate" class="control-label">Complaint Date:</label>
+                <input asp-for="TimimComplaintBox.ComplainDate" class="form-control" />
+                <span asp-validation-for="TimimComplaintBox.ComplainDate" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

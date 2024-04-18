@@ -1,0 +1,57 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization;
+@attribute [Authorize(Roles = "Admin")]
+@model TimimInnovation.Pages.Admin.Securities.SecuritiesModel
+@{
+    ViewData["Title"] = "Admin Securities";
+}
+
+<div class="container mt-5">
+    <div class="row">
+
+        <!-- Assign Users to Admin Container -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-primary text-white">
+                    Assign Users to Admin
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        <div class="form-group">
+                            <label for="Email">Email:</label>
+                            <input type="email" id="Email" asp-for="Email" class="form-control" required />
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2">Assign to Admin Role</button>
+                    </form>
+                    @if (ViewData.ModelState.ErrorCount > 0)
+                    {
+                        <div class="alert mt-3 alert-danger">
+                            @foreach (var value in ViewData.ModelState.Values)
+                            {
+                                foreach (var error in value.Errors)
+                                {
+                                    @error.ErrorMessage
+                                }
+                            }
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Activity Container -->
+        <div class="col-md-6 mb-4">
+            <div class="card h-100">
+                <div class="card-header bg-success text-white">
+                    Activity
+                </div>
+                <div class="card-body">
+                    <p>@User.Identity.Name : @DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")</p>
+
+                    <!-- Button -->
+                    <a href="/Admin/Securities/Activity/Index" class="btn btn-primary mt-2">Recent Logs</a>
+
+                    <!-- You can continue to add other content here. -->
+                </div>
+            </div>
+        </div>

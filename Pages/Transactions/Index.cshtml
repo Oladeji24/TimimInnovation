@@ -1,0 +1,92 @@
+﻿@page
+@model TimimInnovation.Pages.Transactions.IndexModel
+
+@{
+    ViewData["Title"] = "Property Preview";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (Model.LatestTimimTransaction != null)
+{
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-4">
+                <!-- You can add an image here if you have one in your model -->
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(model => Model.LatestTimimTransaction.PropertyName)</h5>
+                    <p class="card-text">Owner: @Html.DisplayFor(model => Model.LatestTimimTransaction.FirstName) @Html.DisplayFor(model => Model.LatestTimimTransaction.LastName)</p>
+                    <p class="card-text">Receipt No: @Html.DisplayFor(model => Model.LatestTimimTransaction.ReceiptNo)</p>
+                    <p class="card-text">Price: ₦@Model.LatestTimimTransaction.Price.ToString("N2")</p>
+                    <p class="card-text">Property Code: @Html.DisplayFor(model => Model.LatestTimimTransaction.PropertyCode)</p>
+                    <p class="card-text">Transaction Code: @Html.DisplayFor(model => Model.LatestTimimTransaction.TransactionCode)</p>
+                    <p class="card-text">Payment Method: @Html.DisplayFor(model => Model.LatestTimimTransaction.PaymentMethod)</p>
+                    <p class="card-text">Start Date: @Html.DisplayFor(model => Model.LatestTimimTransaction.StartDate)</p>
+                    <p class="card-text">End Date: @Html.DisplayFor(model => Model.LatestTimimTransaction.EndDate)</p>
+                    <p class="card-text">
+                        <small class="text-muted">Last updated @Html.DisplayFor(model => Model.LatestTimimTransaction.UpdatedDate)</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Link -->
+    <a class="btn btn-primary" asp-page="./Edit" asp-route-id="@Model.LatestTimimTransaction.TransactionId">Edit Details</a>
+
+    <!-- Pay Now Button -->
+    <a id="proceedLink" href="/Payment/PaymentOption" class="btn btn-success @(string.IsNullOrEmpty(HttpContext.Session.GetString("ServiceType")) ? "disabled" : "")">Pay Now</a>
+
+    <!-- Caption/Label -->
+    <p class="text-warning">You must select Transaction Type to Proceed</p>
+
+    <!-- Transaction Type Selection -->
+    <form method="post" class="mt-3">
+        <label>Please select your transaction type:</label>
+        <div class="d-inline-flex">
+            @foreach (var type in new[] { "Sales", "Rent", "Shortage", "Booking" })
+            {
+                <div class="mr-3">
+                    <input type="radio" id="@type" name="ServiceType" value="@type" onchange="submitAndEnable();" @(Model.ServiceType == type ? "checked" : "") />
+                    <label for="@type">@type</label>
+                </div>
+            }
+        </div>
+
+        <!-- Link to Terms and Conditions -->
+        <p class="mt-3">
+            <a id="termsLink" href="/ClientAccords/Index" class="@(Model.IsServiceTypeSet ? "" : "disabled")">READ THE TERMS AND CONDITIONS CAREFULLY</a>
+        </p>
+
+        <input type="submit" value="Set Transaction Type" style="display:none;" /> <!-- Hidden submit button -->
+    </form>
+}
+else
+{
+    <div class="alert alert-info">
+        No property data available for preview.
+    </div>
+}
+
+@section Scripts {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Remove the "disabled" class from all links
+            var allLinks = document.querySelectorAll("a.disabled");
+            allLinks.forEach(function (link) {
+                link.classList.remove("disabled");
+            });
+        });
+
+        function submitAndEnable() {
+            // Enable the buttons and links
+            document.getElementById("proceedLink").classList.remove("disabled");
+            document.getElementById("termsLink").classList.remove("disabled");
+
+            // Submit the form
+            document.querySelector("form").submit();
+        }
+    </script>
+}

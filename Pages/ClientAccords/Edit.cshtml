@@ -1,0 +1,45 @@
+﻿@page
+@model TimimInnovation.Pages.ClientAccords.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>ClientConcord</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ClientConcord.ClientConcordId" />
+            <div class="form-group">
+                <label asp-for="ClientConcord.ClientConcordServiceType" class="control-label"></label>
+                <input asp-for="ClientConcord.ClientConcordServiceType" class="form-control" />
+                <span asp-validation-for="ClientConcord.ClientConcordServiceType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientConcord.ClientConcordTitle" class="control-label"></label>
+                <input asp-for="ClientConcord.ClientConcordTitle" class="form-control" />
+                <span asp-validation-for="ClientConcord.ClientConcordTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClientConcord.ClientConcordText" class="control-label"></label>
+                <input asp-for="ClientConcord.ClientConcordText" class="form-control" />
+                <span asp-validation-for="ClientConcord.ClientConcordText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

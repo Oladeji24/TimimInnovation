@@ -1,0 +1,41 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization;
+@attribute [Authorize(Roles = "Admin")]
+@model TimimInnovation.Pages.Admin.Securities.Activity.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Login Overview</h1>
+
+<p>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.LastActivity[0].Username)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastActivity[0].LastSeen)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.LastActivity) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Username)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastSeen)
+            </td>
+            <td>
+               
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,39 @@
+﻿@page
+@model TimimInnovation.Pages.Accords.IndexModel
+
+@{
+    ViewData["Title"] = "Terms and Conditions Agreement";
+}
+
+<style>
+    /* Adding a CSS style for scrollable content */
+    .scrollable-content {
+        max-height: 400px; /* adjust this value as needed */
+        overflow-y: auto;
+        padding: 10px;
+        border: 1px solid #e0e0e0;
+        margin-bottom: 20px;
+    }
+</style>
+
+<h1>Terms and Conditions</h1>
+
+<div class="scrollable-content"> 
+    @if (Model.Concord.Any())
+    {
+        // Displaying only the first matched agreement for simplicity
+        <div class="alert alert-info">
+            <h4>@Model.Concord.First().ConcordTitle</h4>
+            <p>@Model.Concord.First().ConcordText</p>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger">No terms and conditions found for your location.</div>
+    }
+</div>
+
+<form method="post">
+    <button type="submit" asp-page-handler="Accept" class="btn btn-success">Accept</button>
+    <button type="submit" asp-page-handler="Decline" class="btn btn-danger">Decline</button>
+</form>

@@ -1,0 +1,120 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization;
+@model TimimInnovation.Pages.Admin.AdminInModel
+@attribute [Authorize(Roles = "Admin")]
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Timim Properties</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+    <div class="container mt-5 text-center">
+        <h1 class="display-4 mb-5">Welcome to Timim Properties Admin Dashboard</h1>
+        <p class="lead mb-5">Hello, @Model.CurrentUser!</p>
+
+        <div class="row">
+            <!-- Existing Properties -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Existing Properties</h5>
+                        <p class="card-text">Manage Existing Properties.</p>
+                        <a href="/Admin/Existing/Properties/Create" class="btn btn-primary">Go to Existing Properties</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Existing Tenants -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Existing Tenants</h5>
+                        <p class="card-text">Manage Existing Tenants.</p>
+                        <a href="/Admin/Existing/Transactions/Create" class="btn btn-primary">Go to Existing Tenants</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Properties -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Properties</h5>
+                        <p class="card-text">Manage Listed Properties.</p>
+                        <a href="/Admin/Properties/Index" class="btn btn-primary">Go to Properties</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transactions -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Transactions</h5>
+                        <p class="card-text">Oversee all Transactions.</p>
+                        <a href="/Admin/Transactions/Index" class="btn btn-primary">Go to Transactions</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Agents -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Agents</h5>
+                        <p class="card-text">Registered Agents.</p>
+                        <a href="/Admin/Agents/Index" class="btn btn-primary">Go to Agents</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Search -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Search</h5>
+                        <p class="card-text">Search Functionalities.</p>
+                        <a href="/Admin/Search/Properties/Index" class="btn btn-primary">Go to Search</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Securities -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Securities</h5>
+                        <p class="card-text">Security and Access Controls.</p>
+                        <a href="/Admin/Securities/Securities" class="btn btn-primary">Go to Securities</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Misc -->
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Misc</h5>
+                        <p class="card-text">Miscellaneous Functionalities.</p>
+                        <a href="/Admin/Misc/Misc" class="btn btn-primary">Go to Misc</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <p class="text-muted mt-5" style="font-size: 12px;">Current time: @Model.CurrentDateTime.ToString("g")</p>
+    </div>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+</html>

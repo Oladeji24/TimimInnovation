@@ -1,0 +1,255 @@
+﻿@page
+@using Microsoft.AspNetCore.Authorization;
+@model TimimInnovation.Pages.Tca.TcaStartModel
+@attribute [Authorize]
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location Selection</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body class="bg-light py-5">
+    <div class="container">
+        <!-- Welcome Message -->
+        <div class="alert alert-primary text-center rounded w-50 mx-auto mb-4" role="alert">
+            WELCOME @Model.CurrentUserName.ToUpper() TO THE TIMIM PROPERTIES PORTAL
+        </div>
+
+        <!-- Begin Form -->
+        <form method="post">
+            <div class="row justify-content-center">
+                <div class="col-md-4 mb-3">
+                    <div class="card border-primary mb-3">
+                        <h2 class="card-header bg-primary text-white text-center">Continents</h2>
+                        <!-- Dropdown for Continents -->
+                        <select id="continentDropdown" name="continentDropdown" class="form-control"></select>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card border-success mb-3">
+                        <h2 class="card-header bg-success text-white text-center">Countries</h2>
+                        <!-- Dropdown for Countries -->
+                        <select id="countryDropdown" name="countryDropdown" class="form-control"></select>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <div class="card border-danger mb-3">
+                        <h2 class="card-header bg-danger text-white text-center">States or regions</h2>
+                        <!-- Dropdown for States or Regions -->
+                        <select id="stateOrRegionDropdown" name="stateOrRegionDropdown" class="form-control"></select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Firstname and Lastname textboxes -->
+            <div class="row justify-content-center mb-4">
+                <div class="col-md-6">
+                    <input type="text" id="firstname" name="firstname" class="form-control mb-2" placeholder="Firstname" required>
+                    <input type="text" id="lastname" name="lastname" class="form-control mb-2" placeholder="Lastname" required>
+                    <button type="submit" class="btn btn-success btn-block">Proceed to Terms</button>
+                </div>
+            </div>
+        </form>
+        <!-- End Form -->
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            const continents = ["Africa", "Asia", "Europe", "North America", "Oceania", "South America"];
+
+            // Map to handle potential API naming conventions
+            const apiRegionMap = {
+                "North America": "Americas", // This is just an example, might differ in the actual API
+                "South America": "Americas", // Same as above
+                // add other continents if they have different naming in the API
+            };
+
+            const statesOrRegions = {
+                "Nigeria": [
+                    "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue",
+                    "Borno", "Cross River", "Delta", "Ebonyi", "Edo", "Ekiti", "Enugu",
+                    "Gombe", "Imo", "Jigawa", "Kaduna", "Kano", "Katsina", "Kebbi", "Kogi",
+                    "Kwara", "Lagos", "Nasarawa", "Niger", "Ogun", "Ondo", "Osun", "Oyo",
+                    "Plateau", "Rivers", "Sokoto", "Taraba", "Yobe", "Zamfara", "FCT"
+                ],
+                "Ghana": [
+                    "Ahafo", "Ashanti", "Bono", "Bono East", "Central", "Eastern", "Greater Accra",
+                    "Northern", "North East", "Oti", "Savannah", "Upper East", "Upper West",
+                    "Volta", "Western", "Western North"
+                ],
+                "Mali": [
+                    "Bamako", "Gao", "Kayes", "Kidal", "Koulikoro", "Mopti", "Ségou", "Sikasso", "Taoudénit", "Tombouctou"
+                ],
+                "Senegal": [
+                    "Dakar", "Diourbel", "Fatick", "Kaffrine", "Kaolack", "Kédougou", "Kolda", "Louga", "Matam", "Saint-Louis", "Sédhiou", "Tambacounda", "Thiès", "Ziguinchor"
+                ],
+                "Ivory Coast": [
+                    "Abidjan", "Bas-Sassandra", "Comoé", "Denguélé", "Gôh-Djiboua", "Lacs", "Lagunes", "Montagnes", "Sassandra-Marahoué", "Savanes", "Vallée du Bandama", "Woroba", "Yamoussoukro", "Zanzan"
+                ],
+                           "Benin": [
+                    "Alibori", "Atakora", "Atlantique", "Borgou", "Collines", "Donga", "Kouffo", "Littoral", "Mono", "Ouémé", "Plateau", "Zou"
+                ],
+                "Burkina Faso": [
+                    "Boucle du Mouhoun", "Cascades", "Centre", "Centre-Est", "Centre-Nord", "Centre-Ouest", "Centre-Sud", "Est", "Hauts-Bassins", "Nord", "Plateau-Central", "Sahel", "Sud-Ouest"
+                ],
+                "Guinea": [
+                    "Boké", "Conakry", "Faranah", "Kankan", "Kindia", "Labé", "Mamou", "Nzérékoré"
+                ],
+                "Liberia": [
+                    "Bomi", "Bong", "Gbarpolu", "Grand Bassa", "Grand Cape Mount", "Grand Gedeh", "Grand Kru", "Lofa", "Margibi", "Maryland", "Montserrado", "Nimba", "Rivercess", "River Gee", "Sinoe"
+                ],
+                "Sierra Leone": [
+                    "Eastern", "Northern", "North Western", "Southern", "Western Area"
+                ],
+                "Togo": [
+                    "Centrale", "Kara", "Maritime", "Plateaux", "Savanes"
+                ],
+                "Niger": [
+                    "Agadez", "Diffa", "Dosso", "Maradi", "Tahoua", "Tillabéri", "Zinder", "Niamey"
+                ],
+                "Guinea-Bissau": [
+                    "Bafatá", "Biombo", "Bolama", "Cacheu", "Gabú", "Oio", "Quinara", "Tombali", "Bissau"
+                ],
+                "The Gambia": [
+                    "Banjul", "Central River", "Lower River", "North Bank", "Upper River", "West Coast"
+                ],
+                "Mauritania": [
+                    "Adrar", "Assaba", "Brakna", "Dakhlet Nouadhibou", "Gorgol", "Guidimaka", "Hodh Ech Chargui", "Hodh El Gharbi", "Inchiri", "Nouakchott-Nord", "Nouakchott-Ouest", "Tagant", "Tiris Zemmour", "Trarza"
+                ],
+                "Cape Verde": [
+                    "Boa Vista", "Brava", "Fogo", "Maio", "Mosteiros", "Paul", "Porto Novo", "Praia", "Ribeira Grande", "Sal", "Santa Catarina", "Santa Cruz", "São Domingos", "São Filipe", "São Miguel", "São Nicolau", "São Vicente", "Tarrafal"
+                ],
+                "São Tomé and Príncipe": [
+                    "Água Grande", "Cantagalo", "Caué", "Lembá", "Lobata", "Mé-Zóchi", "Príncipe"
+                ],
+                        "United States": [
+                    "Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia",
+                    "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland",
+                    "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey",
+                    "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
+                    "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"
+                ],
+                "United Kingdom": [
+                    "England", "Scotland", "Wales", "Northern Ireland"
+                ],
+
+                "Canada": [
+                    "Alberta", "British Columbia", "Manitoba", "New Brunswick", "Newfoundland and Labrador", "Nova Scotia", "Ontario", "Prince Edward Island", "Quebec", "Saskatchewan",
+                    "Northwest Territories", "Nunavut", "Yukon"
+                ],
+
+                "Australia": [
+                    "New South Wales", "Queensland", "South Australia", "Tasmania", "Victoria", "Western Australia", "Australian Capital Territory", "Northern Territory"
+                ],
+                "South Africa": [
+                    "Eastern Cape", "Free State", "Gauteng", "KwaZulu-Natal", "Limpopo",
+                    "Mpumalanga", "North West", "Northern Cape", "Western Cape"
+                ],
+
+                "Kenya": [
+                    "Baringo", "Bomet", "Bungoma", "Busia", "Elgeyo-Marakwet", "Embu",
+                    "Garissa", "Homa Bay", "Isiolo", "Kajiado", "Kakamega", "Kericho",
+                    "Kiambu", "Kilifi", "Kirinyaga", "Kisii", "Kisumu", "Kitui", "Kwale",
+                    "Laikipia", "Lamu", "Machakos", "Makueni", "Mandera", "Meru",
+                    "Migori", "Marsabit", "Mombasa", "Murang'a", "Nairobi", "Nakuru",
+                    "Nandi", "Narok", "Nyamira", "Nyandarua", "Nyeri", "Samburu",
+                    "Siaya", "Taita–Taveta", "Tana River", "Tharaka-Nithi", "Trans-Nzoia",
+                    "Turkana", "Uasin Gishu", "Vihiga", "Wajir", "West Pokot"
+                ],
+
+                "Uganda": [
+                    "Abim", "Adjumani", "Agago", "Alebtong", "Amolatar", "Amudat",
+                    "Amuria", "Amuru", "Apac", "Arua", "Budaka", "Bududa", "Bugiri",
+                    "Buhweju", "Buikwe", "Bukedea", "Bukomansimbi", "Bukwo", "Bulambuli",
+                    "Buliisa", "Bundibugyo", "Bushenyi", "Busia", "Butaleja", "Butambala",
+                    "Buvuma", "Buyende", "Dokolo", "Gomba", "Gulu", "Hoima", "Ibanda",
+                    "Iganga", "Isingiro", "Jinja", "Kaabong", "Kabale", "Kabarole",
+                    "Kaberamaido", "Kagadi", "Kakumiro", "Kalangala", "Kaliro", "Kalungu",
+                    "Kampala", "Kamuli", "Kamwenge", "Kanungu", "Kapchorwa", "Kasese",
+                    "Katakwi", "Kayunga", "Kibaale", "Kiboga", "Kibuku", "Kiruhura",
+                    "Kiryandongo", "Kisoro", "Kitgum", "Koboko", "Kole", "Kotido",
+                    "Kumi", "Kween", "Kyankwanzi", "Kyegegwa", "Kyenjojo", "Lamwo",
+                    "Lira", "Luuka", "Luwero", "Lwengo", "Lyantonde", "Manafwa",
+                    "Maracha", "Masaka", "Masindi", "Mayuge", "Mbale", "Mbarara",
+                    "Mitooma", "Mityana", "Moroto", "Moyo", "Mpigi", "Mubende",
+                    "Mukono", "Nakapiripirit", "Nakaseke", "Nakasongola", "Namayingo",
+                    "Namutumba", "Napak", "Nebbi", "Ngora", "Ntungamo", "Nwoya",
+                    "Otuke", "Oyam", "Pader", "Pallisa", "Rakai", "Rubirizi",
+                    "Rukungiri", "Sembabule", "Serere", "Sheema", "Sironko", "Soroti",
+                    "Tororo", "Wakiso", "Yumbe", "Zombo"
+                ],
+
+                "Morocco": [
+                    "Béni Mellal-Khénifra", "Casablanca-Settat", "Dakhla-Oued Ed-Dahab",
+                    "Drâa-Tafilalet", "Fès-Meknès", "Guelmim-Oued Noun", "Laâyoune-Sakia El Hamra",
+                    "Marrakesh-Safi", "Oriental", "Rabat-Salé-Kénitra", "Souss-Massa",
+                    "Tanger-Tetouan-Al Hoceima"
+                ],
+
+                "Ethiopia": [
+                    "Addis Ababa", "Afar", "Amhara", "Benishangul-Gumuz", "Dire Dawa",
+                    "Gambela", "Harari", "Oromia", "Sidama", "Somali", "Southern Nations, Nationalities, and Peoples'", "Tigray"
+                ],
+                "Cameroon": [
+                    "Adamawa", "Centre", "East", "Far North", "Littoral", "North", "Northwest",
+                    "South", "Southwest", "West"
+                ]
+
+
+
+                // ... You can keep adding more West African countries and their states/regions here
+            };
+
+            continents.forEach(continent => {
+                $('#continentDropdown').append(`<option value="${continent}">${continent}</option>`);
+            });
+
+            function fetchCountries(continent) {
+                let apiRegion = apiRegionMap[continent] || continent;
+
+                $.get('https://restcountries.com/v3.1/all', function (data) {
+                    let filteredCountries = data.filter(country => country.region === apiRegion);
+
+                    $('#countryDropdown').empty();
+                    filteredCountries.forEach(country => {
+                        $('#countryDropdown').append(`<option value="${country.name.common}">${country.name.common}</option>`);
+                    });
+
+                    if (continent === "Africa") {
+                        $('#countryDropdown').val('Nigeria').change();
+                    }
+                });
+            }
+
+            function fetchStates(country) {
+                $('#stateOrRegionDropdown').empty();
+
+                if (statesOrRegions[country]) {
+                    statesOrRegions[country].forEach(region => {
+                        $('#stateOrRegionDropdown').append(`<option value="${region}">${region}</option>`);
+                    });
+                }
+            }
+
+            $('#continentDropdown').change(function () {
+                fetchCountries($(this).val());
+            });
+
+            $('#countryDropdown').change(function () {
+                fetchStates($(this).val());
+            });
+
+            fetchCountries('Africa');
+        });
+    </script>
+</body>
+</html>
+
